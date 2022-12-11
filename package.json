@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "The Web Messenger with minimum of connected libraries",
   "scripts": {
-    "start": "parcel src/pages/index.hbs --open --no-cache --port 3000",
-    "build": "parcel build src/pages/index.hbs && node ./server.js"
+    "dev": "parcel src/pages/index.hbs --open --no-cache --port 3000",
+    "start": "parcel build src/pages/index.hbs && node ./server.js",
+    "build": "parcel build src/pages/index.hbs"
   },
   "keywords": [
     "JS",
