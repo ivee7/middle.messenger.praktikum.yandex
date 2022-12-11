@@ -1,0 +1,29 @@
+---
+{
+    inputs: [
+        {input-code: "user-name", input-label: "Имя", input-type: "text", input-value: "Иван", disabled: 'disabled'},
+        {input-code: "user-surname", input-label: "Фамилия", input-type: "text", input-value: "Сергеев", disabled: 'disabled'},
+        {input-code: "user-email", input-label: "Почта", input-type: "text", input-value: "mail@mail.ru", disabled: 'disabled'},
+        {input-code: "user-login", input-label: "Логин", input-type: "text", input-value: "ives", disabled: 'disabled'},
+        {input-code: "user-tel", input-label: "Телефон", input-type: "tel", input-value: "+78005555555", disabled: 'disabled'},
+        {input-code: "user-nickname", input-label: "Имя в чате", input-type: "text", input-value: "Иван", disabled: 'disabled'}
+    ]
+}
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Messenger</title>
+    <link rel="stylesheet" href="../styles/index.css">
+</head>
+<body>
+    <div id="root">
+        <div class="dimmer">
+            {{> profile-form/profile-form name="Иван" inputs=inputs profile=true}}
+        </div>
+    </div>
+</body>
+</html>

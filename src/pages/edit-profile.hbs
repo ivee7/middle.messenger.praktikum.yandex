@@ -1,0 +1,29 @@
+---
+{
+    inputs: [
+        {input-code: "user-name-edit", input-label: "Имя", input-type: "text", input-value: "Иван"},
+        {input-code: "user-surname-edit", input-label: "Фамилия", input-type: "text", input-value: "Сергеев"},
+        {input-code: "user-email-edit", input-label: "Почта", input-type: "text", input-value: "mail@mail.ru"},
+        {input-code: "user-login-edit", input-label: "Логин", input-type: "text", input-value: "ives"},
+        {input-code: "user-tel-edit", input-label: "Телефон", input-type: "tel", input-value: "+78005555555"},
+        {input-code: "user-nickname-edit", input-label: "Имя в чате", input-type: "text", input-value: "Иван"}
+    ]
+}
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Messenger</title>
+    <link rel="stylesheet" href="../styles/index.css">
+</head>
+<body>
+    <div id="root">
+        <div class="dimmer">
+            {{> profile-form/profile-form inputs=inputs btn-text="Сохранить" edit=true}}
+        </div>
+    </div>
+</body>
+</html>

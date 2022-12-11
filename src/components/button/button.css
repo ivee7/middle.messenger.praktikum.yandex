@@ -1,0 +1,28 @@
+.button {
+    background-color: $cerulean;
+    border-radius: $border-radius-small;
+
+    height: 32px;
+
+    font-size: 1.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-left: 14px;
+    padding-right: 14px;
+
+    color: $white;
+
+    box-shadow: 3px 2px $cornflower;
+
+    transition-property: color, box-shadow;
+    transition-duration: .1s;
+    transition-timing-function: ease-in-out;
+
+    &:hover {
+        background-color: $cornflower;
+        box-shadow: 3px 2px $cerulean;
+    }
+}

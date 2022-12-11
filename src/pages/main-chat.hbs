@@ -1,0 +1,105 @@
+---
+{
+    chats: [
+        {
+            image: 'person.svg',
+            name: 'Андрей',
+            time: '12:30',
+            last-message: 'И Human Interface Guidelines и Material Design рекомендует поучаствовать в новом вебинаре от нашей компании',
+            number: '3',
+        },
+        {
+            image: 'person.svg',
+            name: 'Киноклуб',
+            time: 'Чт',
+            last-message: 'Друзья, у меня для вас особенный выпуск новостей!',
+            number: '1',
+        },
+        {
+            image: 'person.svg',
+            name: 'Вадим',
+            time: '20.08.2022',
+            last-message: 'Круто!',
+            outgoing: true,
+            active: 'active'
+        }
+    ],
+    list-one: [
+        {icon-name: 'bin', text: 'Удалить чат'}
+    ],
+    list-second: [
+        {icon-name: 'files', text: 'Сменить аватар'},
+        {icon-name: 'plus', text: 'Добавить пользователя'},
+        {icon-name: 'minus', text: 'Удалить пользователя'},
+        {icon-name: 'bin', text: 'Удалить чат'}
+    ]
+}
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Messenger</title>
+    <link rel="stylesheet" href="../styles/index.css">
+</head>
+<body>
+    <div id="root">
+        <div class="main">
+            <div class="main__col main__col--side">
+                <div class="main__bar">
+                    {{> burger/burger}}
+                    <div class="main__search">
+                        {{> search/search}}
+                    </div>
+                </div>
+                <ul class="main__chats">
+                    <li>
+                        {{#each chats}}
+                            {{> chat-item/chat-item}}
+                        {{/each}}
+                    </li>
+                </ul>
+            </div>
+            <div class="main__col main__col--main">
+
+                <div class="main__chat">
+                    <div class="main__chat-bar">
+                        <h3 class="main__chat-name">Вадим</h3>
+                        <button class="main__chat-menu-btn">
+                            <img class="main__chat-menu-btn-icon" src="../static/icons/dots.svg" alt="dots">
+                        </button>
+                    </div>
+                    <div class="main__chat-space">
+                        <div class="main__chat-col">
+
+                        </div>
+                        <div class="main__chat-col main__chat-col--outgoing">
+                            {{> message/message text="Круто" time="22:15" outgoing=true }}
+                        </div>
+                    </div>
+                    <div class="main__chat-bar main__chat-bar--darken">
+                        <label class="main__chat-file-picker">
+                            <input type="file">
+                        </label>
+                        <input class="main__input-typer" type="text" placeholder="Написать сообщение">
+                        <button class="main__send-btn">
+                            <img class="main__icon-send" src="../static/icons/route.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="main__delete-chat-func">
+                {{> click-menu/click-menu list=list-one}}
+            </div>
+
+            <div class="main__delete-chat-func-two">
+                {{> click-menu/click-menu list=list-second}}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

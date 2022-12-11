@@ -1,0 +1,48 @@
+.modal-tall {
+    width: 100%;
+    height: 100%;
+    max-width: 360px;
+
+    padding: 16px 30px;
+
+    background-color: $twilight-blue;
+    border: 1px solid $cerulean;
+    border-radius: $border-radius-big;
+
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .25);
+
+    &__header {
+        font-size: 2.4rem;
+        font-weight: $font-weight-extra-light;
+        text-align: center;
+    }
+
+    &__form {
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__body {
+        width: 100%;
+
+        &-item {
+            margin-bottom: 12px;
+    
+            @include zero-vertical-offset-of-last;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__link {
+        margin-top: 14px;
+    }
+}

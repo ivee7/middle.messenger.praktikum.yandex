@@ -1,0 +1,162 @@
+.profile-form {
+    height: 100%;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    &__wrapper {
+        position: relative;
+
+        height: 100%;
+        width: 600px;
+
+        padding: 20px 40px;
+
+        border-radius: $border-radius-big;
+        background-color: $smalt-blue;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__body {
+        width: 100%;
+    }
+
+    &__image-wrapper {
+        position: relative;
+
+        width: 100px;
+        height: 100px;
+
+        border-radius: 50%;
+        background-color: $comet;
+    }
+
+    &__change-photo {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        width: 42px;
+        height: 42px;
+
+        border-radius: 50%;
+        background-color: $cerulean;
+        border: 1px solid $blue-charcoal;
+
+        background-image: url('../static/icons/pin_photo.svg');
+        background-repeat: no-repeat;
+        background-position: 50%;
+
+        cursor: pointer;
+
+        &:hover {
+            border-color: $twilight-blue;
+        }
+    }
+
+    &__image {
+        width: 100px;
+        height: 100px;
+    }
+
+    &__title {
+        font-size: 2.4rem;
+        font-weight: $font-weight-semi-bold;
+
+        margin-top: 24px;
+
+        text-align: center;
+
+        color: $twilight-blue;
+    }
+
+    &__field {
+        display: flex;
+        align-items: center;
+        
+        padding-top: 4px;
+        padding-bottom: 4px;
+        margin-bottom: 24px;
+
+        border-bottom: 1px solid $white;
+        color: $twilight-blue;
+
+        @include zero-vertical-offset-of-last;
+    }
+
+    &__label {
+        flex-shrink: 0;
+
+        font-weight: $font-weight-semi-bold;
+
+        font-size: 1.6rem;
+    }
+
+    &__value {
+        flex-grow: 1;
+
+        height: 24px;
+
+        text-align: end;
+    
+        font-size: 1.6rem;
+        font-weight:$font-weight-extra-light;
+        line-height: 100%;
+
+        color: $twilight-blue;
+
+        &::placeholder {
+            color: $twilight-blue;
+            opacity: .4;
+        }
+    }
+
+    &__links {
+        align-self: flex-start;
+    }
+
+    &__link-field {
+        display: flex;
+        align-items: center;
+
+        margin-bottom: 14px;
+
+        @include zero-vertical-offset-of-last;
+    }
+
+    &__link-image {
+        height: 28px;
+        width: 28px;
+
+        margin-right: 24px;
+    }
+
+    &__link {
+        font-size: 2rem;
+    }
+
+    &__back-link {
+        position: absolute;
+        top: 18px;
+        left: 14px;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 58px;
+        height: 58px;
+
+        border-radius: 50%;
+        background-color: $blue-charcoal;
+        box-shadow: 1px 4px 10px 0px rgba(188, 217, 238, 0.2)
+    }
+
+    &__arrow-back-link {
+        width: 16px;
+    }
+}

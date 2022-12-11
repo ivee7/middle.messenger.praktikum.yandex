@@ -1,0 +1,12 @@
+@import './link/link.css';
+@import './burger/burger.css';
+@import './button/button.css';
+@import './input/input.css';
+@import './search/search.css';
+@import './chat-item/chat-item.css';
+@import './profile-form/profile-form.css';
+@import './click-menu/click-menu.css';
+@import './error/error.css';
+@import './message/message.css';
+@import './modal-small/modal-small.css';
+@import './modal-tall.css';

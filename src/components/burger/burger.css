@@ -1,0 +1,24 @@
+.burger {
+    width: 32px;
+
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    &:hover {
+        filter: drop-shadow(1px 1px 1px $white);
+    }
+
+    &__bar {
+        width: 30px;
+        height: 2px;
+
+        margin-left: 1px;
+        margin-right: 1px;
+
+        background-color: $white;
+
+        margin-bottom: 6px;
+
+        @include zero-vertical-offset-of-last;
+    }
+}

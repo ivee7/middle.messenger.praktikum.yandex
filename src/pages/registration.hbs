@@ -1,0 +1,49 @@
+---
+{
+    inputs: [
+        {label: "Имя", type: "text"},
+        {label: "Фамилия", type: "text"},
+        {label: "Логин", type: "text"},
+        {label: "Почта", type: "email"},
+        {label: "Телефон", type: "tel"},
+        {label: "Пароль", type: "password"},
+        {label: "Повторите пароль", type: "password"}
+    ]
+}
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Messenger</title>
+    <link rel="stylesheet" href="../styles/index.css">
+</head>
+<body>
+    <div id="root">
+        <div class="empty">
+            <div class="modal-tall">
+                <form action="#" class="modal-tall__form">
+                    <h2 class="modal-tall__header">Регистрация</h2>
+
+                    <ul class="modal-tall__body">
+                        {{#each inputs}}
+                            <li class="modal-tall__body-item">
+                                {{> input/input label=label type=type}}
+                            </li>
+                        {{/each}}
+                    </ul>
+
+                    <div class="modal-tall__footer">
+                        {{> button/button text='Создать аккаунт' type='submit'}}
+                        <div class="modal-tall__link">
+                             {{> link/link link-type='black' to='./auth.hbs' text='Войти'}}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

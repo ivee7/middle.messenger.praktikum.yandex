@@ -1,0 +1,18 @@
+.link {
+    &--black {
+        color: $elephant;
+        font-weight: $font-weight-semi-bold;
+    }
+
+    &--blue {
+        display: inline-block;
+
+        font-weight: $font-weight-medium;
+        font-size: 2rem;
+        color: $cerulean;
+
+        background-image: url(../static/images/arrow_right.png);
+        background-repeat: no-repeat;
+        background-position: 100% 10px;
+    }
+}

@@ -1,0 +1,14 @@
+@import './_fonts.css';
+@import './_generic.css';
+@import './_mixins.css';
+
+@import '../components/index.css';
+@import '../layouts/index.css';
+@import '../pages/index.css';
+
+.index {
+    &__link {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+}

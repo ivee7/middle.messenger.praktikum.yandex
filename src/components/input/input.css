@@ -1,0 +1,24 @@
+.input {
+    &__label {
+        font-size: 1.2rem;
+        font-weight: $font-weight-extra-light;
+    }
+
+    &__field {
+        font-weight: $font-weight-medium;
+        line-height: 18px;
+
+        width: 100%;
+
+        margin-top: 6px;
+
+        border-bottom: 1px solid $deep-cove;
+        border-top-left-radius: $border-radius-small;
+        border-top-right-radius: $border-radius-small;
+
+        &:focus {
+            background-color: $white;
+            border-bottom-color: $cerulean;
+        }
+    }
+}
