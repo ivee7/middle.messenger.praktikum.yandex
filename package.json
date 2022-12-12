@@ -1,0 +1,33 @@
+{
+  "name": "web_messenger",
+  "version": "1.0.0",
+  "description": "The Web Messenger with minimum of connected libraries",
+  "scripts": {
+    "dev": "parcel src/pages/index.hbs --open --no-cache --port 3000",
+    "start": "parcel build src/pages/index.hbs && node ./server.js",
+    "build": "parcel build src/pages/index.hbs"
+  },
+  "keywords": [
+    "JS",
+    "NodeJS",
+    "Parcel",
+    "Express",
+    "PostCSS",
+    "ESlint",
+    "Web",
+    "messenger"
+  ],
+  "author": "ivees7@yandex.ru",
+  "license": "ISC",
+  "devDependencies": {
+    "@anikin/parcel-transformer-handlebars": "1.0.9",
+    "parcel": "2.8.0",
+    "postcss-import": "15.0.1",
+    "postcss-nested": "6.0.0",
+    "postcss-sassy-mixins": "2.1.0",
+    "postcss-simple-vars": "7.0.1"
+  },
+  "dependencies": {
+    "express": "4.18.2"
+  }
+}

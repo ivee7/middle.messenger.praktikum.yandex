@@ -1,0 +1,44 @@
+<div class="profile-form">
+    <form class="profile-form__wrapper">
+        <div class="profile-form__header">
+            <div class="profile-form__image-wrapper">
+                <img class="profile-form__image" src="../static/icons/person.svg">
+                {{#if edit}}
+                    <label class="profile-form__change-photo"><input name="avatar" type="file"/></label>
+                {{/if}}
+            </div>
+            {{#if profile}}
+                <h3 class="profile-form__title">{{name}}</h3>
+            {{/if}}
+        </div>
+        <ul class="profile-form__body">
+            {{#each inputs}}
+                <li class="profile-form__field">
+                    <label class="profile-form__label" for="{{input-id}}">{{input-label}}</label>
+                    <input class="profile-form__value" placeholder="{{placeholder}}" {{disabled}} name="{{input-name}}" id="{{input-id}}" type="{{input-type}}" value="{{input-value}}">
+                </li>
+            {{/each}}
+        </ul>
+        <div class="profile-form__footer">
+            {{#if profile}}
+                <ul class="profile-form__links">
+                    <li class="profile-form__link-field">
+                        <img class="profile-form__link-image" src="../static/icons/wrench.svg">
+                        {{> link/link link-class="profile-form__link" link-type="black" to="./edit-profile.hbs" text="Редактировать профиль"}}
+                    </li>
+                    <li class="profile-form__link-field">
+                        <img class="profile-form__link-image" src="../static/icons/shild.svg">
+                        {{> link/link link-class="profile-form__link" link-type="black" to="./change-password.hbs" text="Изменить пароль"}}
+                    </li>
+                </ul>
+            {{else}}
+                {{> button/button type="submit" text=btn-text}}
+            {{/if}}
+        </div>
+        {{#unless profile}}
+            <a class="profile-form__back-link" href="../pages/profile.hbs">
+                <img class="profile-form__arrow-back-link" src="../static/icons/arrow_back.svg">
+            </a>
+        {{/unless}}
+    </form>
+</div>

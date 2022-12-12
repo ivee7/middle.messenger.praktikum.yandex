@@ -1,0 +1,12 @@
+.empty {
+    position: relative;
+
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-bottom: 20px;
+    padding-top: 20px;
+}

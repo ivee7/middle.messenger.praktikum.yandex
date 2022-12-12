@@ -1,0 +1,42 @@
+.click-menu {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    background-color: $blue-charcoal;
+
+    min-width: 140px;
+
+    border-radius: $border-radius-small;
+
+    &__option-wrapper {
+        margin-bottom: 12px;
+
+        @include zero-vertical-offset-of-last;
+    }
+
+    &__option {
+        padding-left: 10px;
+        padding-right: 10px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(41, 85, 116, .4);
+        }
+    }
+
+    &__image {
+        width: 26px;
+        height: 26px;
+
+        margin-right: 8px;
+    }
+
+    &__text {
+        font-size: 1.4rem;
+        color: $white;
+    }
+}

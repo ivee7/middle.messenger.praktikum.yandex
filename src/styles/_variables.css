@@ -1,0 +1,33 @@
+$white: #ffffff;
+$twilight-blue: #f3feff;
+$spring-green: #00fea3;
+$red: #fe0000;
+$cornflower: #87bee5;
+$cerulean: #0d9bEb;
+$fountain-blue: #68a4c6;
+$astral: #39849b;
+$smalt-blue: #557e96;
+$astronaut: #295574;
+$elephant: #154251;
+$comet: #536176;
+$gray: #8d8d8d;
+$deep-cove: #0c064a;
+$black-rock: #0f0439;
+$blue-charcoal: #010c10;
+$black: #000000;
+
+$font-family-default: "Helvetica", sans-serif;
+$font-family-custom: "Montserrat";
+$font-family: $font-family-custom, $font-family-default;
+
+$font-size-basic: 10px;
+
+$font-weight-extra-light: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+
+$border-radius-big: 30px;
+$border-radius-small: 5px;

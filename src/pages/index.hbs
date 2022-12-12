@@ -1,0 +1,42 @@
+---
+{
+    links: [
+        {to: './auth.hbs', text: 'Авторизация'},
+        {to: './registration.hbs', text: 'Регистрация'},
+        {to: './server-error.hbs', text: '505'},
+        {to: './not-found.hbs', text: '404'},
+        {to: './main.hbs', text: 'Выбрать чат'},
+        {to: './main-chat.hbs', text: 'Чат'},
+        {to: './to-profile.hbs', text: 'Меню'},
+        {to: './profile.hbs', text: 'Профиль'},
+        {to: './edit-profile.hbs', text: 'Редактировать профиль'},
+        {to: './change-password.hbs', text: 'Изменить пароль'},
+        {to: '../components/success-modal/success-modal.hbs', text: 'Успешная загрузка'},
+        {to: '../components/mistake/mistake.hbs', text: 'Ошибка загрузки'},
+        {to: '../components/add-user/add-user.hbs', text: 'Добавить пользователя'},
+        {to: '../components/delete-user/delete-user.hbs', text: 'Удалить пользователя'},
+        {to: '../components/approve-exit/approve-exit.hbs', text: 'Подтверждение выхода'}
+    ]
+}
+---
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Messenger</title>
+    <link rel="stylesheet" href="../styles/index.css">
+</head>
+<body>
+    <main id="root">
+        <div class="empty">
+            <ul class="index">
+                {{#each links}}
+                    <li class="index__link">{{> link/link link-type='black'}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    </main>
+</body>
+</html>
