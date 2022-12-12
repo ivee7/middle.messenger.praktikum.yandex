@@ -4,7 +4,7 @@
             <div class="profile-form__image-wrapper">
                 <img class="profile-form__image" src="../static/icons/person.svg">
                 {{#if edit}}
-                    <label class="profile-form__change-photo"><input type="file"></label>
+                    <label class="profile-form__change-photo"><input name="avatar" type="file"/></label>
                 {{/if}}
             </div>
             {{#if profile}}
@@ -14,8 +14,8 @@
         <ul class="profile-form__body">
             {{#each inputs}}
                 <li class="profile-form__field">
-                    <label class="profile-form__label" for="{{input-code}}">{{input-label}}</label>
-                    <input class="profile-form__value" placeholder="{{placeholder}}" {{disabled}} name="{{input-code}}" id="{{input-code}}" type="{{input-type}}" value="{{input-value}}">
+                    <label class="profile-form__label" for="{{input-id}}">{{input-label}}</label>
+                    <input class="profile-form__value" placeholder="{{placeholder}}" {{disabled}} name="{{input-name}}" id="{{input-id}}" type="{{input-type}}" value="{{input-value}}">
                 </li>
             {{/each}}
         </ul>

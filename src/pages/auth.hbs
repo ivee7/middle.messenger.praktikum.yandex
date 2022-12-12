@@ -1,5 +1,13 @@
+---
+{
+    inputs: [
+        {name: 'login', id: 'login_auth', label: 'Логин', placeholder: 'Ваш логин', type: 'text'},
+        {name: 'password', id: 'password_auth', label: 'Пароль', placeholder: 'Введите пароль', type: 'password'}
+    ]
+}
+---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,21 +16,18 @@
     <link rel="stylesheet" href="../styles/index.css">
 </head>
 <body>
-    <div id="root">
+    <main id="root">
         <div class="empty">
             <div class="modal-tall">
                 <form action="#" class="modal-tall__form">
                     <h2 class="modal-tall__header">Вход</h2>
-
                     <ul class="modal-tall__body">
-                        <li class="modal-tall__body-item">
-                            {{> input/input label='Логин' type='text'}}
-                        </li>
-                        <li class="modal-tall__body-item">
-                            {{> input/input label='Пароль' type='password'}}
-                        </li>
+                        {{#each inputs}}
+                            <li class="modal-tall__body-item">
+                                {{> input/input placeholder=placeholder name=name label=label type=type}}
+                            </li>
+                        {{/each}}
                     </ul>
-
                     <div class="modal-tall__footer">
                         {{> button/button text='Войти' type='submit'}}
                         <div class="modal-tall__link">
@@ -32,6 +37,6 @@
                 </form>
             </div>
         </div>
-    </div>
+    </main>
 </body>
 </html>

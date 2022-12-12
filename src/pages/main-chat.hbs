@@ -36,7 +36,7 @@
 }
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,7 +45,7 @@
     <link rel="stylesheet" href="../styles/index.css">
 </head>
 <body>
-    <div id="root">
+    <main id="root">
         <div class="main">
             <div class="main__col main__col--side">
                 <div class="main__bar">
@@ -79,15 +79,15 @@
                             {{> message/message text="Круто" time="22:15" outgoing=true }}
                         </div>
                     </div>
-                    <div class="main__chat-bar main__chat-bar--darken">
+                    <form class="main__chat-bar main__chat-bar--darken">
                         <label class="main__chat-file-picker">
                             <input type="file">
                         </label>
-                        <input class="main__input-typer" type="text" placeholder="Написать сообщение">
-                        <button class="main__send-btn">
-                            <img class="main__icon-send" src="../static/icons/route.svg" alt="">
+                        <input name="message" class="main__input-typer" type="text" placeholder="Написать сообщение">
+                        <button type="submit" class="main__send-btn">
+                            <img class="main__icon-send" src="../static/icons/route.svg" alt="send">
                         </button>
-                    </div>
+                    </form>
                 </div>
 
             </div>
@@ -100,6 +100,6 @@
                 {{> click-menu/click-menu list=list-second}}
             </div>
         </div>
-    </div>
+    </main>
 </body>
 </html>

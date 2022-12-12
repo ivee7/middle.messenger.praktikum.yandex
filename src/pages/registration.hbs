@@ -1,18 +1,18 @@
 ---
 {
     inputs: [
-        {label: "Имя", type: "text"},
-        {label: "Фамилия", type: "text"},
-        {label: "Логин", type: "text"},
-        {label: "Почта", type: "email"},
-        {label: "Телефон", type: "tel"},
-        {label: "Пароль", type: "password"},
-        {label: "Повторите пароль", type: "password"}
+        {label: "Имя", type: "text", placeholder: "", name: "first_name", id: "first_name_reg"},
+        {label: "Фамилия", type: "text", placeholder: "", name: "second_name", id: "second_name_reg"},
+        {label: "Логин", type: "text", placeholder: "", name: "login", id: "login_reg"},
+        {label: "Почта", type: "email", placeholder: "", name: "email", id: "email_reg"},
+        {label: "Телефон", type: "tel", placeholder: "", name: "password", id: "password_reg"},
+        {label: "Пароль", type: "password", placeholder: "", name: "phone", id: "phone_reg"},
+        {label: "Повторите пароль", type: "password", placeholder: "", name: "submit_password", id: "submit_password_reg"}
     ]
 }
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="../styles/index.css">
 </head>
 <body>
-    <div id="root">
+    <main id="root">
         <div class="empty">
             <div class="modal-tall">
                 <form action="#" class="modal-tall__form">
@@ -30,7 +30,7 @@
                     <ul class="modal-tall__body">
                         {{#each inputs}}
                             <li class="modal-tall__body-item">
-                                {{> input/input label=label type=type}}
+                                {{> input/input label=label type=type placeholder=placeholder name=name id=id}}
                             </li>
                         {{/each}}
                     </ul>
@@ -44,6 +44,6 @@
                 </form>
             </div>
         </div>
-    </div>
+    </main>
 </body>
 </html>
