@@ -75,44 +75,9 @@
     }
 
     &__field {
-        display: flex;
-        align-items: center;
-        
-        padding-top: 4px;
-        padding-bottom: 4px;
         margin-bottom: 24px;
 
-        border-bottom: 1px solid $white;
-        color: $twilight-blue;
-
         @include zero-vertical-offset-of-last;
-    }
-
-    &__label {
-        flex-shrink: 0;
-
-        font-weight: $font-weight-semi-bold;
-
-        font-size: 1.6rem;
-    }
-
-    &__value {
-        flex-grow: 1;
-
-        height: 24px;
-
-        text-align: end;
-    
-        font-size: 1.6rem;
-        font-weight:$font-weight-extra-light;
-        line-height: 100%;
-
-        color: $twilight-blue;
-
-        &::placeholder {
-            color: $twilight-blue;
-            opacity: .4;
-        }
     }
 
     &__links {

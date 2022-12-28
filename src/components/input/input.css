@@ -20,5 +20,13 @@
             background-color: $white;
             border-bottom-color: $cerulean;
         }
+
+        &.val__field_error {
+            border-bottom-color: $red;
+        }
+
+        &.val__field_error + .val__error-message {
+            color: $red;
+        }
     }
 }

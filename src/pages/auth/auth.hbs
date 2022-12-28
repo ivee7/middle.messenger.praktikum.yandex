@@ -1,0 +1,43 @@
+<main class="main-wrapper">
+    <div class="empty">
+        <div class="modal-tall">
+            <form action="#" class="modal-tall__form">
+                <h2 class="modal-tall__header">Вход</h2>
+                <ul class="modal-tall__body">
+                    <li class="modal-tall__body-item">
+                        {{{ Input
+                            validationType='login'
+                            placeholder='Ваш логин'
+                            name='login'
+                            label='Логин'
+                            type='text'
+                        }}}
+                    </li>
+                    <li class="modal-tall__body-item">
+                        {{{ Input
+                            validationType='password'
+                            placeholder='Введите пароль'
+                            name='password'
+                            label='Пароль'
+                            type='password'
+                        }}}
+                    </li>
+                </ul>
+                <div class="modal-tall__footer">
+                    {{{ Button
+                        onClick=onClick
+                        text='Войти'
+                        type='submit'
+                    }}}
+                    <div class="modal-tall__link">
+                        {{{ Link
+                            linkType='black'
+                            to='./registration.hbs'
+                            text='Зарегестрироваться'
+                        }}}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

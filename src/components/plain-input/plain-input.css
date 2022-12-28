@@ -1,0 +1,53 @@
+.plain-input {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    border-bottom: 1px solid $white;
+    color: $twilight-blue;
+
+    &__label {
+        flex-shrink: 0;
+
+        font-weight: $font-weight-semi-bold;
+
+        font-size: 1.6rem;
+    }
+
+    &__field {
+        flex-grow: 1;
+
+        height: 24px;
+
+        text-align: end;
+
+        font-size: 1.6rem;
+        font-weight:$font-weight-extra-light;
+        line-height: 100%;
+
+        color: $twilight-blue;
+
+        &[data-disabled="true"] {
+            pointer-events: none;
+        }
+
+        &::placeholder {
+            color: $twilight-blue;
+            opacity: .4;
+        }
+
+        &.val__field_error + .val__error-message {
+            color: $red;
+            font-size: 1.4rem;
+        }
+    }
+
+    &__error-message {
+        position: absolute;
+        top: 120%;
+    }
+}
