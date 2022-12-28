@@ -7,7 +7,9 @@
       "stylelint-scss"
     ],
     "ignoreFiles": [
-      "dist/*"
+      "dist/*",
+      "node_modules/*",
+      ".parcel-cache/*"
     ],
     "rules": {
       "at-rule-no-unknown": null,

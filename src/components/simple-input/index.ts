@@ -9,7 +9,6 @@ interface SimpleInputProps {
   defaultValue?: string;
   value?: string;
   class?: string;
-  isDisabled?: boolean;
   onFocus: () => void;
   onBlur: () => void;
 }
@@ -32,7 +31,6 @@ export class SimpleInput extends Block {
       name: this.props.name,
       placeholder: this.props.placeholder,
       value: this.props.value,
-      isDisabled: this.props.isDisabled,
     });
   }
 }

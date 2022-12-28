@@ -10,6 +10,10 @@
     border-bottom: 1px solid $white;
     color: $twilight-blue;
 
+    &[data-disabled="true"] {
+        pointer-events: none;
+    }
+
     &__label {
         flex-shrink: 0;
 
@@ -30,10 +34,6 @@
         line-height: 100%;
 
         color: $twilight-blue;
-
-        &[data-disabled="true"] {
-            pointer-events: none;
-        }
 
         &::placeholder {
             color: $twilight-blue;
