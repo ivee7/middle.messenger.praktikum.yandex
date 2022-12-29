@@ -23,7 +23,7 @@ export class PlainInput extends Block {
     });
 
     this.setProps({
-      blur: this.validateField.bind(this),
+      onBlur: this.validateField.bind(this),
       onFocus: this.validateField.bind(this),
     });
 

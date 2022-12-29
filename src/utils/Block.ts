@@ -1,23 +1,23 @@
 import { nanoid } from 'nanoid';
 import EventBus from './EventBus';
 
-class Block {
+abstract class Block<Props extends Record<string, any> = unknown> {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
     FLOW_CDU: 'flow:component-d id-update',
     FLOW_RENDER: 'flow:render',
-  };
+  } as const;
 
   public id = nanoid(6);
 
-  protected props: Record<string, unknown>;
+  protected props: Props;
 
   private eventBus: () => EventBus;
 
   private _element!: HTMLElement;
 
-  protected children: Record<string, Block>;
+  protected children: Props;
 
   constructor(propsWithChildren = {}) {
     const eventBus = new EventBus();
@@ -34,8 +34,8 @@ class Block {
   }
 
   private _getChildrenAndProps(childrenAndProps: any) {
-    const props: Record<string, any> = {};
-    const children: Record<string, Block> = {};
+    const props: Props = {};
+    const children: Props = {};
 
     Object.entries(childrenAndProps).forEach(([key, value]) => {
       if (value instanceof Block) {
@@ -49,7 +49,7 @@ class Block {
   }
 
   _addEvents() {
-    const events: Record<string, () => void> = (this.props as any).events;
+    const events: Props = (this.props as any).events;
 
     if (!events) {
       return;
@@ -61,7 +61,7 @@ class Block {
   }
 
   _removeEvents() {
-    const events: Record<string, () => void> = (this.props as any).events;
+    const events: Props = (this.props as any).events;
 
     if (!events || !this._element) {
       return;
@@ -103,7 +103,7 @@ class Block {
     return true;
   }
 
-  setProps = (nextProps: Record<string, any>) => {
+  setProps = (nextProps: Props) => {
     if (!nextProps) {
       return;
     }
@@ -155,7 +155,7 @@ class Block {
     return this.element;
   }
 
-  _makePropsProxy(props: Record<string, any>) {
+  _makePropsProxy(props: Props) {
     const self = this;
 
     return new Proxy(props, {
