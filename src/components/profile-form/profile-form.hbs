@@ -2,7 +2,7 @@
     <form class="profile-form__wrapper">
         <div class="profile-form__header">
             <div class="profile-form__image-wrapper">
-                <img class="profile-form__image" src="../static/icons/person.svg">
+                <img class="profile-form__image" src="{{person}}">
                 {{#if edit}}
                     <label class="profile-form__change-photo"><input name="avatar" type="file"/></label>
                 {{/if}}
@@ -12,32 +12,131 @@
             {{/if}}
         </div>
         <ul class="profile-form__body">
-            {{#each inputs}}
+            {{#if password}}
                 <li class="profile-form__field">
-                    <label class="profile-form__label" for="{{input-id}}">{{input-label}}</label>
-                    <input class="profile-form__value" placeholder="{{placeholder}}" {{disabled}} name="{{input-name}}" id="{{input-id}}" type="{{input-type}}" value="{{input-value}}">
+                    {{{ PlainInput
+                        validationType="password"
+                        id="oldPasswordChange"
+                        label="Старый пароль"
+                        name="oldPassword"
+                        placeholder="Введите страый пароль..."
+                        type="password"
+                    }}}
                 </li>
-            {{/each}}
+                <li class="profile-form__field">
+                    {{{ PlainInput
+                        validationType="password"
+                        id="newPasswordChange"
+                        label="Новый пароль"
+                        name="newPassword"
+                        placeholder="Введите новый пароль..."
+                        type="password"
+                    }}}
+                </li>
+                <li class="profile-form__field">
+                    {{{ PlainInput
+                        validationType="password"
+                        id="newPasswordSubmitChange"
+                        label="Повторите новый пароль"
+                        name="repeatNewPassword"
+                        placeholder="Введите новый пароль повторно..."
+                        type="password"
+                    }}}
+                </li>
+            {{else}}
+                <li class="profile-form__field">
+                    {{{ PlainInput
+                        validationType="name"
+                        id="first_name_profile"
+                        label="Имя"
+                        name="first_name"
+                        placeholder=""
+                        type="text"
+                        value="Иван"
+                        isDisabled=isDisabled
+                    }}}
+                </li>
+                <li class="profile-form__field">
+                    {{{ PlainInput
+                        validationType="name"
+                        id="second_name_profile"
+                        label="Фамилия"
+                        name="second_name"
+                        placeholder=""
+                        type="text"
+                        value="Сергеев"
+                        isDisabled=isDisabled
+                    }}}
+                </li>
+                <li class="profile-form__field">
+                    {{{ PlainInput
+                        validationType="email"
+                        id="email_profile"
+                        label="Почта"
+                        name="email"
+                        placeholder=""
+                        type="email"
+                        value="mail@mail.ru"
+                        isDisabled=isDisabled
+                    }}}
+                </li>
+                <li class="profile-form__field">
+                    {{{ PlainInput
+                        validationType="login"
+                        id="login_profile"
+                        label="Логин"
+                        name="login"
+                        placeholder=""
+                        type="text"
+                        value="ives"
+                        isDisabled=isDisabled
+                    }}}
+                </li>
+                <li class="profile-form__field">
+                    {{{ PlainInput
+                        validationType="phone"
+                        id="phone_profile"
+                        label="Телефон"
+                        name="phone"
+                        placeholder=""
+                        type="tel"
+                        value="+78005555555"
+                        isDisabled=isDisabled
+                    }}}
+                </li>
+                <li class="profile-form__field">
+                    {{{ PlainInput
+                        validationType="required"
+                        id="display_name_profile"
+                        label="Имя в чате"
+                        name="display_name"
+                        placeholder=""
+                        type="text"
+                        value="Ivan"
+                        isDisabled=isDisabled
+                    }}}
+                </li>
+            {{/if}}
         </ul>
         <div class="profile-form__footer">
             {{#if profile}}
                 <ul class="profile-form__links">
                     <li class="profile-form__link-field">
-                        <img class="profile-form__link-image" src="../static/icons/wrench.svg">
-                        {{> link/link link-class="profile-form__link" link-type="black" to="./edit-profile.hbs" text="Редактировать профиль"}}
+                        <img class="profile-form__link-image" src="{{wrench}}">
+                        {{{ Link linkClass="profile-form__link" linkType="black" to="./edit-profile.hbs" text="Редактировать профиль" }}}
                     </li>
                     <li class="profile-form__link-field">
-                        <img class="profile-form__link-image" src="../static/icons/shild.svg">
-                        {{> link/link link-class="profile-form__link" link-type="black" to="./change-password.hbs" text="Изменить пароль"}}
+                        <img class="profile-form__link-image" src="{{shild}}">
+                        {{{ Link linkClass="profile-form__link" linkType="black" to="./change-password.hbs" text="Изменить пароль" }}}
                     </li>
                 </ul>
             {{else}}
-                {{> button/button type="submit" text=btn-text}}
+                {{{ Button onClick=onClick type="submit" text=btnText }}}
             {{/if}}
         </div>
         {{#unless profile}}
             <a class="profile-form__back-link" href="../pages/profile.hbs">
-                <img class="profile-form__arrow-back-link" src="../static/icons/arrow_back.svg">
+                <img class="profile-form__arrow-back-link" src="{{arrowBack}}">
             </a>
         {{/unless}}
     </form>

@@ -1,17 +1,17 @@
 <div class="modal-small">
-    <p class="modal-small__header modal-small__header--{{color-title}}">{{title}}</p>
+    <p class="modal-small__header modal-small__header--{{colorTitle}}">{{title}}</p>
     <div class="modal-small__body">
         {{#if input}}
-            {{> input/input placeholder="Логин пользователя" label="Логин" type="text"}}
+            {{{ Input placeholder="Логин пользователя" label="Логин" type="text" }}}
         {{else}}
             <p class="modal-small__text">{{text}}</p>
         {{/if}}
     </div>
     <div class="modal-small__footer">
         {{#if exit}}
-            <div class="modal-small__exit-btn">{{> button/button text="Отмена" type="button"}}</div>
+            <div class="modal-small__exit-btn">{{{ Button text="Отмена" type="button" }}}</div>
         {{/if}}
 
-        {{> button/button text=btn-text type="button"}}
+        {{{ Button text=btnText type="button" }}}
     </div>
 </div>

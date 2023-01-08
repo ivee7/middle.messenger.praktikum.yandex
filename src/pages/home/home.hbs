@@ -1,0 +1,63 @@
+---
+{
+    {{!-- links: [
+        {to: './change-password.hbs', text: 'Изменить пароль'},
+        {to: '../components/success-modal/success-modal.hbs', text: 'Успешная загрузка'},
+        {to: '../components/mistake/mistake.hbs', text: 'Ошибка загрузки'},
+        {to: '../components/add-user/add-user.hbs', text: 'Добавить пользователя'},
+        {to: '../components/delete-user/delete-user.hbs', text: 'Удалить пользователя'},
+        {to: '../components/approve-exit/approve-exit.hbs', text: 'Подтверждение выхода'}
+    ] --}}
+}
+---
+<main class="main-wrapper">
+    <nav class="empty">
+        <ul class="index">
+            <li class="index__link">
+                {{{ Link linkType='black' text='Авторизация' onClick=goToAuth }}}
+            </li>
+            <li class="index__link">
+                {{{ Link linkType='black' text='Регистрация' onClick=goToRegistr }}}
+            </li>
+            <li class="index__link">
+                {{{ Link linkType='black' text='505' onClick=goToServerError }}}
+            </li>
+            <li class="index__link">
+                {{{ Link linkType='black' text='404' onClick=goToNotFoundError }}}
+            </li>
+            <li class="index__link">
+                {{{ Link linkType='black' text='Выбрать чат' onClick=goToMain }}}
+            </li>
+            <li class="index__link">
+                {{{ Link linkType='black' text='Чат' onClick=goToMainChat }}}
+            </li>
+            <li class="index__link">
+                {{{ Link linkType='black' text='Меню' onClick=goToShowProfile }}}
+            </li>
+            <li class="index__link">
+                {{{ Link linkType='black' text='Профиль' onClick=goToProfile }}}
+            </li>
+            <li class="index__link">
+                {{{ Link linkType='black' text='Редактировать профиль' onClick=goToEditProfile }}}
+            </li>
+            <li class="index__link">
+                {{{ Link linkType='black' text='Изменить пароль' onClick=goToChangePassword }}}
+            </li>
+            <li class="index__link">
+                {{{ Link linkType='black' text='Успешная загрузка' onClick=goToSuccessModal }}}
+            </li>
+            <li class="index__link">
+                {{{ Link linkType='black' text='Ошибка загрузки' onClick=goToMistakeModal }}}
+            </li>
+            <li class="index__link">
+                {{{ Link linkType='black' text='Добавить пользователя' onClick=goToAddUser }}}
+            </li>
+            <li class="index__link">
+                {{{ Link linkType='black' text='Удалить пользователя' onClick=goToDeleteUser }}}
+            </li>
+            <li class="index__link">
+                {{{ Link linkType='black' text='Подтверждение выхода' onClick=goToApproveExit }}}
+            </li>
+        </ul>
+    </nav>
+</main>

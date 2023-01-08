@@ -1,0 +1,48 @@
+<main iclass="main-wrapper">
+    <div class="main">
+        <div class="main__col main__col--side">
+            <div class="main__bar">
+                {{{ Burger }}}
+                <div class="main__search">
+                    {{{ Search }}}
+                </div>
+            </div>
+            <ul class="main__chats">
+                <li>
+                    {{{ ChatItem
+                        image='person.svg'
+                        name='Андрей'
+                        time='12:30'
+                        lastMessage='И Human Interface Guidelines и Material Design рекомендует поучаствовать в новом вебинаре от нашей компании'
+                        number='3'
+                    }}}
+                </li>
+                <li>
+                    {{{ ChatItem
+                        image='person.svg'
+                        name='Киноклуб'
+                        time='Чт'
+                        lastMessage='Друзья, у меня для вас особенный выпуск новостей!'
+                        number='1'
+                    }}}
+                </li>
+                <li>
+                    {{{ ChatItem
+                        image='person.svg'
+                        name='Вадим'
+                        time='20.08.2022'
+                        lastMessage='Круто!'
+                        outgoing=true
+                    }}}
+                </li>
+            </ul>
+        </div>
+        <div class="main__col main__col--main">
+            <div class="main__plug">
+                <div class="main__plug-text">
+                    Выберите, кому хотели бы написать
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

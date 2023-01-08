@@ -1,14 +1,14 @@
 <div class="chat-item chat-item--{{active}}">
     <div class="chat-item__wrapper">
         <div class="chat-item__image-wrapper">
-            <img class="chat-item__image" src="../static/icons/{{image}}" alt="image">
+            <img class="chat-item__image" src="{{avatarImage}}" alt="image">
         </div>
         <div class="chat-item__content">
             <div class="chat-item__field">
                 <p class="chat-item__name">{{name}}</p>
                 <div>
                     {{#if outgoing}}
-                        <img  class="chat-item__status" src="../static/icons/checks.svg">
+                        <img  class="chat-item__status" src="{{checksImage}}">
                     {{else}}
                         <div></div>
                     {{/if}}
@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="chat-item__field">
-                <p class="chat-item__message">{{last-message}}</p>
+                <p class="chat-item__message">{{lastMessage}}</p>
                 {{#if outgoing}}
                     <span></span>
                 {{else}}

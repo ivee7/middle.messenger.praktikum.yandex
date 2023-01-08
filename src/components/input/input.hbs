@@ -1,4 +1,16 @@
-<div class="input">
+<div class="input val" data-validation="{{validationType}}">
     <label class="input__label" for="{{id}}">{{label}}</label>
-    <input class="input__field" name="{{name}}" id="{{id}}" placeholder="{{placeholder}}" type="{{type}}">
+    {{{ SimpleInput
+        onBlur=onBlur
+        onFocus=onFocus
+        type=type
+        name=name
+        id=id
+        placeholder=placeholder
+        value=value
+        class='input__field'
+    }}}
+    <p class="input__error-message val__error-message">
+        {{errorMessage}}
+    </p>
 </div>

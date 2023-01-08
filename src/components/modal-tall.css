@@ -31,7 +31,7 @@
 
         &-item {
             margin-bottom: 12px;
-    
+
             @include zero-vertical-offset-of-last;
         }
     }

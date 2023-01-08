@@ -1,0 +1,95 @@
+<main class="main-wrapper">
+    <div class="empty">
+        <div class="modal-tall">
+            <form action="#" class="modal-tall__form">
+                <h2 class="modal-tall__header">Регистрация</h2>
+                <ul class="modal-tall__body">
+                    <li class="modal-tall__body-item">
+                        {{{ Input
+                            label='Имя'
+                            type='text'
+                            validationType='name'
+                            placeholder=''
+                            name='first_name'
+                            id='first_name_reg'
+                        }}}
+                    </li>
+                    <li class="modal-tall__body-item">
+                        {{{ Input
+                            label='Фамилия'
+                            type='text'
+                            validationType='name'
+                            placeholder=''
+                            name='second_name'
+                            id='second_name_reg'
+                        }}}
+                    </li>
+                    <li class="modal-tall__body-item">
+                        {{{ Input
+                            label='Логин'
+                            type='text'
+                            validationType='login'
+                            placeholder=''
+                            name='login'
+                            id='login_reg'
+                        }}}
+                    </li>
+                    <li class="modal-tall__body-item">
+                        {{{ Input
+                            label='Почта'
+                            type='email'
+                            validationType='email'
+                            placeholder=''
+                            name='email'
+                            id='email_reg'
+                        }}}
+                    </li>
+                    <li class="modal-tall__body-item">
+                        {{{ Input
+                            label='Телефон'
+                            type='tel'
+                            validationType='phone'
+                            placeholder=''
+                            name='phone'
+                            id='phone_reg'
+                        }}}
+                    </li>
+                    <li class="modal-tall__body-item">
+                        {{{ Input
+                            label='Пароль'
+                            type='password'
+                            validationType='password'
+                            placeholder=''
+                            name='password'
+                            id='password_reg'
+                        }}}
+                    </li>
+                    <li class="modal-tall__body-item">
+                        {{{ Input
+                            label='Повторите пароль'
+                            type='password'
+                            validationType='required'
+                            placeholder=''
+                            name='submit_password'
+                            id='submit_password_reg'
+                        }}}
+                    </li>
+                </ul>
+                <div class="modal-tall__footer">
+                    {{{ Button
+                        onClick=onClick
+                        text='Создать аккаунт'
+                        type='submit'
+                    }}}
+                    <div class="modal-tall__link">
+                        {{{ Link
+                            linkType='black'
+                            to='./auth.hbs'
+                            text='Войти'
+                        }}}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
