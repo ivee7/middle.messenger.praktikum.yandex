@@ -3,7 +3,7 @@
 @import './button/button.css';
 @import './input/input.css';
 @import './search/search.css';
-@import './chat-item/chat-item.css';
+@import './chats-list/chats-list-item/chats-list-item.css';
 @import './profile-form/profile-form.css';
 @import './click-menu/click-menu.css';
 @import './error/error.css';

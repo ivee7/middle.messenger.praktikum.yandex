@@ -1,7 +1,7 @@
-import { nanoid } from 'nanoid';
 import EventBus from './EventBus';
+import { nanoid } from 'nanoid';
 
-abstract class Block<Props extends Record<string, any> = unknown> {
+class Block {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -11,13 +11,13 @@ abstract class Block<Props extends Record<string, any> = unknown> {
 
   public id = nanoid(6);
 
-  protected props: Props;
+  protected props: Record<string, unknown>;
 
   private eventBus: () => EventBus;
 
-  private _element!: HTMLElement;
+  private _element: HTMLElement;
 
-  protected children: Props;
+  protected children: Record<string, Block>;
 
   constructor(propsWithChildren = {}) {
     const eventBus = new EventBus();
@@ -34,8 +34,8 @@ abstract class Block<Props extends Record<string, any> = unknown> {
   }
 
   private _getChildrenAndProps(childrenAndProps: any) {
-    const props: Props = {};
-    const children: Props = {};
+    const props: Record<string, any> = {};
+    const children: Record<string, Block> = {};
 
     Object.entries(childrenAndProps).forEach(([key, value]) => {
       if (value instanceof Block) {
@@ -49,7 +49,7 @@ abstract class Block<Props extends Record<string, any> = unknown> {
   }
 
   _addEvents() {
-    const events: Props = (this.props as any).events;
+    const events: Record<string, () => void> = (this.props as any).events;
 
     if (!events) {
       return;
@@ -61,7 +61,7 @@ abstract class Block<Props extends Record<string, any> = unknown> {
   }
 
   _removeEvents() {
-    const events: Props = (this.props as any).events;
+    const events: Record<string, () => void> = (this.props as any).events;
 
     if (!events || !this._element) {
       return;
@@ -73,15 +73,19 @@ abstract class Block<Props extends Record<string, any> = unknown> {
   }
 
   _registerEvents(eventBus: EventBus) {
-    eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
+    eventBus.on(Block.EVENTS.INIT, this._init.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
   }
 
-  init() {
+  private _init() {
+    this.init();
+
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
+
+  protected init() {}
 
   _componentDidMount() {
     this.componentDidMount();
@@ -103,7 +107,7 @@ abstract class Block<Props extends Record<string, any> = unknown> {
     return true;
   }
 
-  setProps = (nextProps: Props) => {
+  setProps = (nextProps: Record<string, any>) => {
     if (!nextProps) {
       return;
     }
@@ -130,12 +134,16 @@ abstract class Block<Props extends Record<string, any> = unknown> {
   protected compile(template: (context: any) => string, context: any) {
     const contextAndStubs = { ...context };
 
+    // Object.entries(this.children).forEach(([name, component]) => {
+    //     contextAndStubs[name] = `<div data-id='${component.id}' />`
+    // })
+
     const html = template(contextAndStubs);
     const temp = document.createElement('template');
     temp.innerHTML = html;
 
     Object.entries(this.children).forEach(([name, component]) => {
-      const stub = temp.content.querySelector(`[data-id="${component.id}"]`);
+      const stub = temp.content.querySelector(`[data-id='${component.id}']`);
 
       if (!stub) {
         return;
@@ -155,7 +163,7 @@ abstract class Block<Props extends Record<string, any> = unknown> {
     return this.element;
   }
 
-  _makePropsProxy(props: Props) {
+  _makePropsProxy(props: Record<string, any>) {
     const self = this;
 
     return new Proxy(props, {

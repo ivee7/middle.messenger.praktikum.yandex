@@ -1,0 +1,15 @@
+<div class="messages">
+    <div class="messages__wrapper">
+        {{#each messages}}
+            {{#if not_mine}}
+                <p class="messages__message">
+                {{content}}
+                </p>
+            {{else}}
+                <p class="messages__message messages__message--self">
+                {{content}}
+                </p>
+            {{/if}}
+        {{/each}}
+    </div>
+</div>

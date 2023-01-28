@@ -1,0 +1,92 @@
+.chats-list-item {
+    padding-left: 6px;
+    padding-right: 10px;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(104, 164, 198, 0.25);
+    }
+
+    &--active {
+        background-color: $fountain-blue;
+    }
+
+    &__wrapper {
+        display: flex;
+
+        padding-top: 8px;
+        padding-bottom: 8px;
+
+        border-bottom: 1px solid $white;
+    }
+
+    &__image-wrapper {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+
+        border-radius: 50%;
+
+        background-color: $gray;
+
+        overflow: hidden;
+    }
+
+    &__status {
+        width: 11px;
+        height: 7px;
+
+        color: $twilight-blue;
+    }
+
+    &__image {
+        width: 32px;
+        height: 32px;
+    }
+
+    &__content {
+        margin-left: 10px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        max-width: 400px;
+        width: 100%;
+    }
+
+    &__field {
+        display: flex;
+        justify-content: space-between;
+
+        color: $white;
+        font-size: .8rem;
+        font-weight: $font-weight-light;
+    }
+
+    &__name {
+        font-size: 1.1rem;
+        font-weight: $font-weight-semi-bold;
+    }
+
+    &__message {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__number {
+        margin-left: 10px;
+        flex-shrink: 0;
+        font-weight: $font-weight-semi-bold;
+
+        line-height: 12px;
+        text-align: center;
+
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: $cornflower;
+    }
+}

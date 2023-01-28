@@ -1,7 +1,8 @@
+import { withRouter } from '../../hocs/withRouter';
 import Block from '../../utils/Block';
 import template from './link.hbs';
 
-interface LinkProps {
+interface NavLinkProps {
   text: string;
   to: string;
   linkClass?: string;
@@ -9,25 +10,28 @@ interface LinkProps {
   onClick?: () => void;
 }
 
-export class Link extends Block {
-  constructor(props: LinkProps) {
+class NavLink extends Block {
+  constructor(props: NavLinkProps) {
     super({
-      text: props.text,
-      to: props.to,
-      linkClass: props.linkClass,
-      linkType: props.linkType,
+      ...props,
       events: {
-        click: props.onClick,
+        click: props.onClick ? props.onClick : () => this.navigate(),
       },
     });
   }
 
+  navigate() {
+    if (!this.props.router){
+      return;
+    }
+    this.props.router.go(this.props.to);
+  }
+
   render() {
     return this.compile(template, {
-      text: this.props.text,
-      to: this.props.to,
-      linkClass: this.props.linkClass,
-      linkType: this.props.linkType,
+      ...this.props,
     });
   }
 }
+
+export const Link = withRouter(NavLink);

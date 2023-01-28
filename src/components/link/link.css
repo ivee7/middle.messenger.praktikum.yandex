@@ -1,4 +1,6 @@
 .link {
+    cursor: pointer;
+
     &--black {
         color: $elephant;
         font-weight: $font-weight-semi-bold;

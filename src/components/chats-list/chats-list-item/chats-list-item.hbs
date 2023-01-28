@@ -1,0 +1,25 @@
+<li class="chats-list-item{{#if isActive}} chat-item--active{{/if}}" data-chat-id="{{id}}">
+    <div class="chats-list-item__wrapper">
+        <div class="chats-list-item__image-wrapper">
+            <img class="chats-list-item__image" src="{{avatarSrc}}" alt="avatar">
+        </div>
+        <div class="chats-list-item__content">
+            <div class="chats-list-item__field">
+                <p class="chats-list-item__name">{{title}}</p>
+                <div>
+                    {{#if unreadCount}}
+                        <img class="chats-list-item__status" src="{{checks}}">
+                    {{/if}}
+                    <div></div>
+                    <time class="chats-list-item__time">{{time}}</time>
+                </div>
+            </div>
+            <div class="chats-list-item__field">
+                <p class="chats-list-item__message">{{content}}</p>
+                {{#if unreadCount}}
+                    <div class="chats-list-item__number">{{unreadCount}}</div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</li>

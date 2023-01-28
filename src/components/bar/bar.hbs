@@ -1,0 +1,23 @@
+<div class="main__dimmer{{#if isBarActive}} main__dimmer--active{{/if}}">
+    <nav class="main__nav">
+        <div class="main__nav-header">
+            <div class="main__nav-header-img-wrapper">
+                {{!-- <img class="main__nav-header-img" src="{{person}}"> --}}
+            </div>
+        </div>
+        <ul class="main__nav-list">
+            <li class="main__nav-item">
+                <img class="main__nav-item-img" src="{{person}}">
+                {{{ Link linkClass='main__nav-item-link' linkType='black' text='Профиль' to='/settings' }}}
+            </li>
+            <li class="main__nav-item">
+                <img class="main__nav-item-img" src="{{people}}">
+                {{{ Link linkClass='main__nav-item-link' linkType='black' text='Создать чат' to='/settings' }}}
+            </li>
+            <li class="main__nav-item">
+                <img class="main__nav-item-img" src="{{bin}}">
+                {{{ Link linkClass='main__nav-item-link' linkType='black' text='Выйти' onClick=onLogout }}}
+            </li>
+        </ul>
+    </nav>
+</div>

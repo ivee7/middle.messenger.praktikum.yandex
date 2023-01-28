@@ -1,0 +1,87 @@
+<main iclass="main-wrapper">
+    <div class="main">
+        <div class="main__col main__col--side">
+            <div class="main__bar">
+                {{{Burger}}}
+                <div class="main__search">
+                    {{{Search}}}
+                </div>
+            </div>
+            {{{ChatList}}}
+        </div>
+        <div class="main__col main__col--main">
+            {{#if chatTitle}}
+                <div class="main__chat">
+                    <div class="main__chat-bar">
+                        <h3 class="main__chat-name">Вадим</h3>
+                        {{{ IconButton
+                            btnClass="main__chat-menu-btn"
+                            imgClass="main__chat-menu-btn-icon"
+                            imageSrc=dotsSvg
+                        }}}
+                    </div>
+                    <div class="main__chat-space">
+                        {{{Messages}}}
+                    </div>
+                    <form class="main__chat-bar main__chat-bar--darken">
+                        <label class="main__chat-file-picker">
+                            <input type="file">
+                        </label>
+                        <input name="message" class="main__input-typer" type="text" placeholder="Написать сообщение">
+                        {{{ IconButton
+                            btnClass="main__send-btn"
+                            imgClass="main__icon-send"
+                            imageSrc=routeSvg
+                        }}}
+                    </form>
+                </div>
+            {{else}}
+                <div class="main__plug">
+                    <div class="main__plug-text">
+                        Выберите, кому хотели бы написать
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+
+        {{{Bar}}}
+    </div>
+</main>
+            <ul class="click-menu">
+                <li class="click-menu__option-wrapper">
+                    {{{ IconButton
+                        btnClass="click-menu__option"
+                        imgClass="click-menu__image"
+                        labelClass="click-menu__text"
+                        label="Сменить аватар"
+                        imageSrc=filesSvg
+                    }}}
+                </li>
+                <li class="click-menu__option-wrapper">
+                    {{{ IconButton
+                        btnClass="click-menu__option"
+                        imgClass="click-menu__image"
+                        labelClass="click-menu__text"
+                        label="Добавить пользователя"
+                        imageSrc=plusSvg
+                    }}}
+                </li>
+                <li class="click-menu__option-wrapper">
+                    {{{ IconButton
+                        btnClass="click-menu__option"
+                        imgClass="click-menu__image"
+                        labelClass="click-menu__text"
+                        label="Удалить пользователя"
+                        imageSrc=minusSvg
+                    }}}
+                </li>
+                <li class="click-menu__option-wrapper">
+                    {{{ IconButton
+                        btnClass="click-menu__option"
+                        imgClass="click-menu__image"
+                        labelClass="click-menu__text"
+                        label="Удалить чат"
+                        imageSrc=binSvg
+                    }}}
+                </li>
+            </ul>

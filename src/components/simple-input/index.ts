@@ -30,7 +30,7 @@ export class SimpleInput extends Block {
       id: this.props.id,
       name: this.props.name,
       placeholder: this.props.placeholder,
-      value: this.props.value,
+      defaultValue: this.props.defaultValue,
     });
   }
 }
