@@ -4,14 +4,15 @@ import template from './button.hbs';
 interface ButtonProps {
   text: string;
   type?: string;
+  dataDimmer?: string;
   onClick?: () => void;
 }
 
 export class Button extends Block {
   constructor(props: ButtonProps) {
     super({
-      text: props.text,
-      type: props.type,
+      ...props,
+      dataDimmer: props.dataDimmer,
       events: {
         click: props.onClick,
       },
@@ -22,6 +23,7 @@ export class Button extends Block {
     return this.compile(template, {
       text: this.props.text,
       type: this.props.type,
+      dataDimmer: this.props.dataDimmer,
     });
   }
 }

@@ -1,4 +1,4 @@
-import Block from '../../utils/Block';
+import Block from '../../../utils/Block';
 import template from './mistake.hbs';
 
 export class Mistake extends Block {

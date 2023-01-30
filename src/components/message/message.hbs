@@ -1,9 +1,9 @@
-<div class="message">
-    <p class="message__text">{{text}}</p>
+<div class="message{{#unless not_mine}} message--mine{{/unless}}">
+    <p class="message__text">{{content}}</p>
     <div class="message__info">
         <p class="message__time">{{time}}</p>
-        {{#if outgoing}}
-            <img class="message__checks" src="{{checksSvg}}" alt="checks">
+        {{#if is_read}}
+            <img class="message__checks" src="{{checksSvg}}">
         {{/if}}
     </div>
 </div>

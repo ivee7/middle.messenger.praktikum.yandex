@@ -4,7 +4,7 @@
 
     cursor: pointer;
 
-    &:hover {
+    &:not(.chats-list-item--active).chats-list-item:hover {
         background-color: rgba(104, 164, 198, 0.25);
     }
 

@@ -1,15 +1,7 @@
-<div class="messages">
-    <div class="messages__wrapper">
-        {{#each messages}}
-            {{#if not_mine}}
-                <p class="messages__message">
-                {{content}}
-                </p>
-            {{else}}
-                <p class="messages__message messages__message--self">
-                {{content}}
-                </p>
-            {{/if}}
-        {{/each}}
-    </div>
-</div>
+<ul class="messages">
+    {{#each messages}}
+        <li class="messages__message{{#unless not_mine}} messages__message--mine{{/unless}}">
+            {{{Message content=content time=time is_read=is_read not_mine=not_mine}}}
+        </li>
+    {{/each}}
+</ul>

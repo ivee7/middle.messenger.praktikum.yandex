@@ -1,21 +1,22 @@
 import Block from '../../utils/Block';
 import template from './burger.hbs';
-import store from '../../utils/Store';
+
+interface BurgerProps {
+  onClick: () => void;
+}
 
 export class Burger extends Block {
-  constructor() {
+  constructor(props: BurgerProps) {
     super({
       events: {
-        click: () => this._onOpenBar(),
+        click: props.onClick,
       },
     });
   }
 
-  private _onOpenBar() {
-    store.set('barStatus', true);
-  }
-
   render() {
-    return this.compile(template, {});
+    return this.compile(template, {
+      ...this.props,
+    });
   }
 }

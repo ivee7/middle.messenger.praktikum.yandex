@@ -1,4 +1,4 @@
-import Block from '../../utils/Block';
+import Block from '../../../utils/Block';
 import template from './success-modal.hbs';
 
 export class SuccessModal extends Block {

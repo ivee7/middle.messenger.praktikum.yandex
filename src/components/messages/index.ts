@@ -9,7 +9,8 @@ export class MessagesBase extends Block {
 
     render() {
         return this.compile(template, {
-          ...this.props
+          ...this.props,
+          children: this.children,
         });
     }
 }

@@ -1,9 +1,9 @@
-import Block from '../../../utils/Block';
+import Block from '../../utils/Block';
 import template from './chats-list-item.hbs';
-import avatarPlaceholder from '../../../static/icons/person.svg';
-import checks from '../../../static/icons/checks.svg';
-import store from '../../../utils/Store';
-import { formatDate } from '../../../utils/helpers';
+import avatarPlaceholder from '../../static/icons/person.svg';
+import checks from '../../static/icons/checks.svg';
+import store from '../../utils/Store';
+import { formatDate } from '../../utils/helpers';
 
 export interface ChatsListItemProps {
   id: number;
@@ -32,6 +32,7 @@ export class ChatsListItem extends Block {
 
   render() {
     return this.compile(template, {
+      ...this.props,
       children: this.children,
       id: this.props.id,
       title: this.props.title,

@@ -1,4 +1,4 @@
-import Block from '../../utils/Block';
+import Block from '../../../utils/Block';
 import template from './modal-small.hbs';
 
 interface ModalSmallProps {
@@ -8,6 +8,7 @@ interface ModalSmallProps {
     btnText: string;
     input?: boolean;
     exit?: boolean;
+    onSend?: () => void;
 }
 
 export class ModalSmall extends Block {
@@ -15,6 +16,13 @@ export class ModalSmall extends Block {
     super({
       ...props,
     });
+    this.setProps({
+      onSendData: this.onSendData.bind(this, this.props.onSend)
+    })
+  }
+
+  onSendData(onSend: (content: any) => void) {
+    onSend && onSend(this.getContent())
   }
 
   render() {
@@ -26,6 +34,7 @@ export class ModalSmall extends Block {
       btnText: this.props.btnText,
       input: this.props.input,
       exit: this.props.exit,
+      onSendData: this.props.onSendData
     });
   }
 }

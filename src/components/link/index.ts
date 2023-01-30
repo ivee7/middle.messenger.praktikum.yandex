@@ -7,6 +7,7 @@ interface NavLinkProps {
   to: string;
   linkClass?: string;
   linkType?: string;
+  dataDimmer?: string;
   onClick?: () => void;
 }
 

@@ -9,9 +9,9 @@
     </div>
     <div class="modal-small__footer">
         {{#if exit}}
-            <div class="modal-small__exit-btn">{{{ Button text="Отмена" type="button" }}}</div>
+            <div class="modal-small__exit-btn">{{{ Button text="Отмена" type="button" onClick=onClose}}}</div>
         {{/if}}
 
-        {{{ Button text=btnText type="button" }}}
+        {{{ Button text=btnText type="button" onClick=onSendData dataDimmer="true"}}}
     </div>
 </div>

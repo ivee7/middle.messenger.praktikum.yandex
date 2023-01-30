@@ -2,22 +2,23 @@
     <div class="main">
         <div class="main__col main__col--side">
             <div class="main__bar">
-                {{{Burger}}}
+                {{{Burger onClick=onToggleBar}}}
                 <div class="main__search">
                     {{{Search}}}
                 </div>
             </div>
-            {{{ChatList}}}
+            {{{ChatsList}}}
         </div>
         <div class="main__col main__col--main">
             {{#if chatTitle}}
                 <div class="main__chat">
                     <div class="main__chat-bar">
-                        <h3 class="main__chat-name">Вадим</h3>
+                        <h3 class="main__chat-name">{{chatTitle}}</h3>
                         {{{ IconButton
                             btnClass="main__chat-menu-btn"
                             imgClass="main__chat-menu-btn-icon"
                             imageSrc=dotsSvg
+                            onClick=onToggleClickMenu
                         }}}
                     </div>
                     <div class="main__chat-space">
@@ -32,6 +33,7 @@
                             btnClass="main__send-btn"
                             imgClass="main__icon-send"
                             imageSrc=routeSvg
+                            onClick=onSendMessage
                         }}}
                     </form>
                 </div>
@@ -43,45 +45,66 @@
                 </div>
             {{/if}}
         </div>
-
-        {{{Bar}}}
+        {{#if isBarOpen}}
+            {{{ Bar
+                onToggleCreateChatModal=onToggleCreateChatModal
+                onClose=onToggleBar
+            }}}
+        {{/if}}
     </div>
+
+    {{#if isCreateChatModalOpen}}
+        {{{ CreateChat
+            onSend=onCreate
+            onClose=onToggleCreateChatModal
+        }}}
+    {{/if}}
+
+    {{#if isAddUserModalOpen}}
+        {{{ AddUser
+            onSend=onAddUser
+            onClose=onToggleAddUserModal
+        }}}
+    {{/if}}
+
+    {{#if isDeleteUserModalOpen}}
+        {{{ DeleteUser
+            onSend=onDeleteUser
+            onClose=onToggleDeleteUserModal
+        }}}
+    {{/if}}
+
+    {{#if isClickMenuOpen}}
+        <ul class="click-menu">
+            <li class="click-menu__option-wrapper">
+                {{{ IconButton
+                    btnClass="click-menu__option"
+                    imgClass="click-menu__image"
+                    labelClass="click-menu__text"
+                    label="Добавить пользователя"
+                    imageSrc=plusSvg
+                    onClick=onToggleAddUserModal
+                }}}
+            </li>
+            <li class="click-menu__option-wrapper">
+                {{{ IconButton
+                    btnClass="click-menu__option"
+                    imgClass="click-menu__image"
+                    labelClass="click-menu__text"
+                    label="Удалить пользователя"
+                    imageSrc=minusSvg
+                    onClick=onToggleDeleteUserModal
+                }}}
+            </li>
+            <li class="click-menu__option-wrapper">
+                {{{ IconButton
+                    btnClass="click-menu__option"
+                    imgClass="click-menu__image"
+                    labelClass="click-menu__text"
+                    label="Удалить чат"
+                    imageSrc=binSvg
+                }}}
+            </li>
+        </ul>
+    {{/if}}
 </main>
-            <ul class="click-menu">
-                <li class="click-menu__option-wrapper">
-                    {{{ IconButton
-                        btnClass="click-menu__option"
-                        imgClass="click-menu__image"
-                        labelClass="click-menu__text"
-                        label="Сменить аватар"
-                        imageSrc=filesSvg
-                    }}}
-                </li>
-                <li class="click-menu__option-wrapper">
-                    {{{ IconButton
-                        btnClass="click-menu__option"
-                        imgClass="click-menu__image"
-                        labelClass="click-menu__text"
-                        label="Добавить пользователя"
-                        imageSrc=plusSvg
-                    }}}
-                </li>
-                <li class="click-menu__option-wrapper">
-                    {{{ IconButton
-                        btnClass="click-menu__option"
-                        imgClass="click-menu__image"
-                        labelClass="click-menu__text"
-                        label="Удалить пользователя"
-                        imageSrc=minusSvg
-                    }}}
-                </li>
-                <li class="click-menu__option-wrapper">
-                    {{{ IconButton
-                        btnClass="click-menu__option"
-                        imgClass="click-menu__image"
-                        labelClass="click-menu__text"
-                        label="Удалить чат"
-                        imageSrc=binSvg
-                    }}}
-                </li>
-            </ul>
