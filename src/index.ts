@@ -94,7 +94,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       Router.start();
 
       if (!isProtectedRoute) {
-        Router.go(Routes.Profile)
+        Router.go(Routes.Chats)
       }
     } catch (e) {
       Router.start();

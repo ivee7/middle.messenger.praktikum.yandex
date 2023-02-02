@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: flex-end;
 
-    background-color: $astral;
+    background-color: $acapulco;
     border-radius: 0 10px 10px;
     width: fit-content;
     max-width: 80%;
@@ -13,11 +13,13 @@
     color: $white;
 
     &--mine {
+        background-color: $astral;
         border-radius: 10px 10px 0 10px;
     }
 
     &__text {
         font-size: 1.6rem;
+        word-break: break-all;
     }
 
     &__info {
