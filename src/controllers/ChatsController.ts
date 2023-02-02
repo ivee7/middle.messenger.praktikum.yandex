@@ -46,6 +46,17 @@ export class ChatsController {
     }
   }
 
+  async delete(chatId: number) {
+    try {
+      await this.api.delete(chatId);
+
+      await this.refetch();
+      store.set('chat.activeChat.info.title', undefined);
+    } catch (e: any) {
+      console.log(e);
+    }
+  }
+
   async deleteUser(login: string, chatID: number) {
     try {
       const user = await UserController.searchUser(login);

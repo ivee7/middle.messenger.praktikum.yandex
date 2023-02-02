@@ -75,36 +75,39 @@
     {{/if}}
 
     {{#if isClickMenuOpen}}
-        <ul class="click-menu">
-            <li class="click-menu__option-wrapper">
-                {{{ IconButton
-                    btnClass="click-menu__option"
-                    imgClass="click-menu__image"
-                    labelClass="click-menu__text"
-                    label="Добавить пользователя"
-                    imageSrc=plusSvg
-                    onClick=onToggleAddUserModal
-                }}}
-            </li>
-            <li class="click-menu__option-wrapper">
-                {{{ IconButton
-                    btnClass="click-menu__option"
-                    imgClass="click-menu__image"
-                    labelClass="click-menu__text"
-                    label="Удалить пользователя"
-                    imageSrc=minusSvg
-                    onClick=onToggleDeleteUserModal
-                }}}
-            </li>
-            <li class="click-menu__option-wrapper">
-                {{{ IconButton
-                    btnClass="click-menu__option"
-                    imgClass="click-menu__image"
-                    labelClass="click-menu__text"
-                    label="Удалить чат"
-                    imageSrc=binSvg
-                }}}
-            </li>
-        </ul>
+        <div class="main__chat-menu">
+            <ul class="click-menu">
+                <li class="click-menu__option-wrapper">
+                    {{{ IconButton
+                        btnClass="click-menu__option"
+                        imgClass="click-menu__image"
+                        labelClass="click-menu__text"
+                        label="Добавить пользователя"
+                        imageSrc=plusSvg
+                        onClick=onToggleAddUserModal
+                    }}}
+                </li>
+                <li class="click-menu__option-wrapper">
+                    {{{ IconButton
+                        btnClass="click-menu__option"
+                        imgClass="click-menu__image"
+                        labelClass="click-menu__text"
+                        label="Удалить пользователя"
+                        imageSrc=minusSvg
+                        onClick=onToggleDeleteUserModal
+                    }}}
+                </li>
+                <li class="click-menu__option-wrapper">
+                    {{{ IconButton
+                        btnClass="click-menu__option"
+                        imgClass="click-menu__image"
+                        labelClass="click-menu__text"
+                        label="Удалить чат"
+                        imageSrc=binSvg
+                        onClick=onDelete
+                    }}}
+                </li>
+            </ul>
+        </div>
     {{/if}}
 </main>

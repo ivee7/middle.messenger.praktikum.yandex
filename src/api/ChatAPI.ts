@@ -26,6 +26,10 @@ export class ChatAPI extends BaseAPI {
     return this.http.post('/', { title });
   }
 
+  public delete(chatId: number): Promise<unknown> {
+    return this.http.delete('/', { chatId });
+  }
+
   public deleteUser(userId: number[], chatId: number): Promise<unknown> {
     return this.http.delete('/users', {
       users: userId,
@@ -44,7 +48,6 @@ export class ChatAPI extends BaseAPI {
     });
   }
 
-  delete = undefined;
   update = undefined;
   read = undefined;
 }

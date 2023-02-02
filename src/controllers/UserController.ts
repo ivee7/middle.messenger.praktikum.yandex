@@ -17,7 +17,6 @@ export class UserController {
 
       await AuthController.fetchUser()
 
-      router.go('/settings');
     } catch (e: any) {
       console.log(e.reason);
     }
@@ -29,7 +28,6 @@ export class UserController {
 
       await AuthController.fetchUser()
 
-      router.go('/settings');
     } catch (e: any) {
       console.log(e.reason);
     }
@@ -47,7 +45,6 @@ export class UserController {
     try {
       const response = await this.api.changeAvatar(avatar);
       store.set('user.avatar', response.avatar);
-
     } catch (error) {
       console.error(error)
     }

@@ -40,7 +40,7 @@ export class ChatsListItem extends Block {
       content: this.props.content,
       time: this.props.time? formatDate(new Date(this.props.time as string)) : '',
       unreadCount: this.props.unreadCount,
-      avatarSrc: this.props.avatarSrc || avatarPlaceholder,
+      avatarSrc: this.props.avatarSrc ? `https://ya-praktikum.tech/api/v2/resources/${this.props.avatarSrc}` : avatarPlaceholder,
       isActive: this.props.isActive,
       checksImage: checks,
     });

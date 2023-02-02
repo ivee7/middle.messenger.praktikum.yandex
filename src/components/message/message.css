@@ -8,6 +8,7 @@
     background-color: $astral;
     border-radius: 0 10px 10px;
     width: fit-content;
+    max-width: 80%;
 
     color: $white;
 

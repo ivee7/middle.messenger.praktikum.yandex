@@ -1,5 +1,8 @@
 import dotsSvg from '../../static/icons/dots.svg';
 import routeSvg from '../../static/icons/route.svg';
+import plusSvg from '../../static/icons/plus.svg';
+import minusSvg from '../../static/icons/minus.svg';
+import binSvg from '../../static/icons/bin.svg';
 import Block from '../../utils/Block';
 import template from './chat.hbs';
 import ChatsController from '../../controllers/ChatsController';
@@ -16,8 +19,9 @@ export class BaseChat extends Block {
             onToggleDeleteUserModal: this._onToggleModal.bind(this, 'isDeleteUserModalOpen'),
             onToggleClickMenu: this._onToggleClickMenu.bind(this),
             onCreate: this.onCreate.bind(this),
+            onDelete: this.onDelete.bind(this),
             onAddUser: this._onAddUser.bind(this),
-            // onDeleteUser: this._onDeleteUser.bind(this),
+            onDeleteUser: this._onDeleteUser.bind(this),
             onSendMessage: this._onSendMessage.bind(this),
         });
     }
@@ -57,31 +61,51 @@ export class BaseChat extends Block {
     }
 
     onCreate(content: any) {
-        const data = {
-          title: '',
-        };
-        const input = content.querySelector('input')
+        const input = content.querySelector('.input')
 
-        if (!input.value) {
+        if (Validator.validate(input, 'required')) {
           return;
         }
-        data.title = input.value
-        ChatsController.create(input.value)
+
+        const inputField = input.querySelector('.val__field');
+
+        ChatsController.create(inputField.value);
+
         store.set('isCreateChatModalOpen', false);
     }
 
+    onDelete() {
+      ChatsController.delete(store.getState().chat.activeChat.info.id);
+
+      store.set('isClickMenuOpen', false);
+    }
+
     private _onAddUser(content: any) {
-      const input = content.querySelector('input')
+      const input = content.querySelector('.input')
 
       if (Validator.validate(input, 'required')) {
         return;
       }
 
-      const userName: string = input.value
+      const userName: string = input.querySelector('.val__field').value;
 
-      ChatsController.addUser(userName, store.getState().chat.selectedChat.info.id);
+      ChatsController.addUser(userName, store.getState().chat.activeChat.info.id);
 
       store.set('isAddUserModalOpen', false);
+    }
+
+    private _onDeleteUser(content: any) {
+      const input = content.querySelector('.input')
+
+      if (Validator.validate(input, 'required')) {
+        return;
+      }
+
+      const userName: string = input.querySelector('.val__field').value;
+
+      ChatsController.deleteUser(userName, store.getState().chat.activeChat.info.id);
+
+      store.set('isDeleteUserModalOpen', false);
     }
 
     protected init(): void {
@@ -94,9 +118,13 @@ export class BaseChat extends Block {
             children: this.children,
             dotsSvg: dotsSvg,
             routeSvg: routeSvg,
+            plusSvg: plusSvg,
+            minusSvg: minusSvg,
+            binSvg: binSvg,
             chatTitle: this.props.activeChat?.info.title || '',
             onSendMessage: this.props.onSendMessage,
             onCreate: this.props.onCreate,
+            onDelete: this.props.onDelete,
             onAddUser: this.props.onAddUser,
             onDeleteUser: this.props.onDeleteUser,
             onToggleBar: this.props.onToggleBar,

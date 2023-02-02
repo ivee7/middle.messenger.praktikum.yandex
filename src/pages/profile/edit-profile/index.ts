@@ -3,13 +3,15 @@ import template from './edit-profile.hbs';
 import Validator from '../../../utils/Validator';
 import UserController from '../../../controllers/UserController';
 import AuthController from '../../../controllers/AuthController';
-import { withStore } from '../../../utils/Store';
+import store, { withStore } from '../../../utils/Store';
 
 class BaseEditProfile extends Block {
   constructor() {
     super();
     this.setProps({
       onClick: this._onChangeData.bind(this),
+      onAvatarClick: this._onAvatarChangeClick.bind(this),
+      onAvatarUpload: this._onAvatarUpload.bind(this),
     });
   }
 
@@ -42,16 +44,44 @@ class BaseEditProfile extends Block {
     UserController.changeProfile(data);
   }
 
+  private _onAvatarChangeClick(e: Event) {
+    if (store.getState()['isChangeAvatar']) {
+      e.stopPropagation();
+
+      let target = e.target as HTMLAnchorElement;
+
+      if (target.dataset.dimmer === 'true') {
+          store.set('isChangeAvatar', false);
+      }
+    } else {
+      store.set('isChangeAvatar', true);
+    }
+  }
+
+  _onAvatarUpload(content: any) {
+    if (!content) {
+      return;
+    }
+
+    const formData = new FormData(content);
+
+    UserController.uploadAvatar(formData);
+  }
+
   render() {
     return this.compile(template, {
       ...this.props,
       children: this.children,
       onClick: this.props.onClick,
-      avatar: `https://ya-praktikum.tech/api/v2/resources/${this.props.avatar}`,
+      onAvatarClick: this.props.onAvatarClick,
+      onAvatarUpload: this.props.onAvatarUpload,
     });
   }
 }
 
-const withUser = withStore((state) => ({ ...state.user }));
+const withUser = withStore((state) => ({
+  ...state.user,
+  isChangeAvatar: state.isChangeAvatar,
+}));
 
 export const EditProfile = withUser(BaseEditProfile);

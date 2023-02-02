@@ -22,7 +22,7 @@ export class Message extends Block {
   render() {
     return this.compile(template, {
       content: this.props.content,
-      time: this.props.time,
+      time: this.props.time.match(/\b[0-2]?\d:[0-5]\d\b/),
       is_read: this.props.is_read,
       not_mine: this.props.not_mine,
       checksSvg: checksSvg,

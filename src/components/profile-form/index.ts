@@ -5,6 +5,7 @@ import wrench from '../../static/icons/wrench.svg';
 import shild from '../../static/icons/shild.svg';
 import person from '../../static/icons/person.svg';
 import arrowBack from '../../static/icons/arrow_back.svg';
+import store from '../../utils/Store';
 
 interface ProfileFormProps {
   edit?: boolean,
@@ -48,8 +49,8 @@ export class BaseProfileForm extends Block {
       onClickBack: this.props.onClickBack,
       wrench: wrench,
       shild: shild,
-      person: person,
       arrowBack: arrowBack,
+      avatar: store.getState().user.avatar ? `https://ya-praktikum.tech/api/v2/resources/${store.getState().user.avatar}` : person,
     });
   }
 }

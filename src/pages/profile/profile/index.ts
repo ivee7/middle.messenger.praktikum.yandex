@@ -16,7 +16,6 @@ class BaseProfile extends Block {
         return this.compile(template, {
             ...this.props,
             children: this.children,
-            avatar: `https://ya-praktikum.tech/api/v2/resources/${this.props.avatar}`,
         });
     }
 }

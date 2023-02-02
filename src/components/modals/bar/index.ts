@@ -40,6 +40,7 @@ export class BaseBar extends Block {
           person: person,
           people: people,
           bin: bin,
+          avatar: store.getState().user.avatar ? `https://ya-praktikum.tech/api/v2/resources/${store.getState().user.avatar}` : person,
         });
     }
 }

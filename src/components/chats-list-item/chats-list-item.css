@@ -71,9 +71,13 @@
     }
 
     &__message {
+        font-size: 1.2rem;
+
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+
+        padding-left: 10px;
     }
 
     &__number {
@@ -88,5 +92,12 @@
         height: 12px;
         border-radius: 50%;
         background-color: $cornflower;
+    }
+
+    &__value-author {
+        font-size: 1rem;
+        font-weight: $font-weight-medium;
+
+        color: $deep-cove;
     }
 }

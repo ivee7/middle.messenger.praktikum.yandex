@@ -9,6 +9,12 @@
             phone=phone
             btnText="Сохранить"
             edit=true
+            onClick=onClick
+            onAvatarClick=onAvatarClick
+            isChangeAvatar=isChangeAvatar
         }}}
     </div>
+    {{#if isChangeAvatar}}
+        {{{ChangeAva onClose=onAvatarClick onSend=onAvatarUpload}}}
+    {{/if}}
 </main>

@@ -21,6 +21,8 @@ import { ClickMenu } from './components/modals/click-menu';
 import { DeleteUser } from './components/modals/delete-user';
 import { ModalSmall } from './components/modals/modal-small';
 import { ProfileForm } from './components/profile-form';
+import { AvatarUploader } from './components/avatar-uploader';
+import { ChangeAva } from './components/modals/change-ava';
 import { SuccessModal } from './components/modals/success-modal';
 import { Bar } from './components/modals/bar';
 import { ChatsListItem } from './components/chats-list-item';
@@ -54,6 +56,8 @@ registerComponent('ClickMenu', ClickMenu as any);
 registerComponent('DeleteUser', DeleteUser as any);
 registerComponent('ModalSmall', ModalSmall as any);
 registerComponent('ProfileForm', ProfileForm as any);
+registerComponent('AvatarUploader', AvatarUploader as any);
+registerComponent('ChangeAva', ChangeAva as any);
 registerComponent('SuccessModal', SuccessModal as any);
 registerComponent('Bar', Bar as any);
 

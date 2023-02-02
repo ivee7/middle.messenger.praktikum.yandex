@@ -2,9 +2,9 @@
     <form class="profile-form__wrapper">
         <div class="profile-form__header">
             <div class="profile-form__image-wrapper">
-                <img class="profile-form__image" src="{{person}}">
+                <img class="profile-form__image" src="{{avatar}}">
                 {{#if edit}}
-                    <label class="profile-form__change-photo"><input name="avatar" type="file"/></label>
+                    {{{AvatarUploader onClick=onAvatarClick}}}
                 {{/if}}
             </div>
             {{#if profile}}

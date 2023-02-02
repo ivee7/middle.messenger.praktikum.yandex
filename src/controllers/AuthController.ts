@@ -25,7 +25,7 @@ export class AuthController {
 
       await this.fetchUser();
 
-      router.go('/settings');
+      router.go('/messenger');
     } catch (e: any) {
       console.error(e.message);
     }

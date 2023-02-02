@@ -8,6 +8,7 @@ interface ModalSmallProps {
     btnText: string;
     input?: boolean;
     exit?: boolean;
+    file?: boolean;
     onSend?: () => void;
 }
 
@@ -34,6 +35,7 @@ export class ModalSmall extends Block {
       btnText: this.props.btnText,
       input: this.props.input,
       exit: this.props.exit,
+      file: this.props.file,
       onSendData: this.props.onSendData
     });
   }

@@ -15,6 +15,9 @@
                 </div>
             </div>
             <div class="chats-list-item__field">
+                {{#if author}}
+                    <span class="chats-list-item__value-author">{{author}}:</span>
+                {{/if}}
                 <p class="chats-list-item__message">{{content}}</p>
                 {{#if unreadCount}}
                     <div class="chats-list-item__number">{{unreadCount}}</div>
