@@ -2,13 +2,13 @@
     <form class="profile-form__wrapper">
         <div class="profile-form__header">
             <div class="profile-form__image-wrapper">
-                <img class="profile-form__image" src="{{person}}">
+                <img class="profile-form__image" src="{{avatar}}">
                 {{#if edit}}
-                    <label class="profile-form__change-photo"><input name="avatar" type="file"/></label>
+                    {{{AvatarUploader onClick=onAvatarClick}}}
                 {{/if}}
             </div>
             {{#if profile}}
-                <h3 class="profile-form__title">{{name}}</h3>
+                <h3 class="profile-form__title">{{display_name}}</h3>
             {{/if}}
         </div>
         <ul class="profile-form__body">
@@ -53,6 +53,7 @@
                         placeholder=""
                         type="text"
                         value="Иван"
+                        defaultValue=first_name
                         isDisabled=isDisabled
                     }}}
                 </li>
@@ -65,6 +66,7 @@
                         placeholder=""
                         type="text"
                         value="Сергеев"
+                        defaultValue=second_name
                         isDisabled=isDisabled
                     }}}
                 </li>
@@ -77,6 +79,7 @@
                         placeholder=""
                         type="email"
                         value="mail@mail.ru"
+                        defaultValue=email
                         isDisabled=isDisabled
                     }}}
                 </li>
@@ -89,6 +92,7 @@
                         placeholder=""
                         type="text"
                         value="ives"
+                        defaultValue=login
                         isDisabled=isDisabled
                     }}}
                 </li>
@@ -101,6 +105,7 @@
                         placeholder=""
                         type="tel"
                         value="+78005555555"
+                        defaultValue=phone
                         isDisabled=isDisabled
                     }}}
                 </li>
@@ -113,6 +118,7 @@
                         placeholder=""
                         type="text"
                         value="Ivan"
+                        defaultValue=display_name
                         isDisabled=isDisabled
                     }}}
                 </li>
@@ -123,21 +129,33 @@
                 <ul class="profile-form__links">
                     <li class="profile-form__link-field">
                         <img class="profile-form__link-image" src="{{wrench}}">
-                        {{{ Link linkClass="profile-form__link" linkType="black" to="./edit-profile.hbs" text="Редактировать профиль" }}}
+                        {{{ Link linkClass="profile-form__link" linkType="black" to="/settings/editData" text="Редактировать профиль" }}}
                     </li>
                     <li class="profile-form__link-field">
                         <img class="profile-form__link-image" src="{{shild}}">
-                        {{{ Link linkClass="profile-form__link" linkType="black" to="./change-password.hbs" text="Изменить пароль" }}}
+                        {{{ Link linkClass="profile-form__link" linkType="black" to="/settings/editPassword" text="Изменить пароль" }}}
                     </li>
                 </ul>
             {{else}}
                 {{{ Button onClick=onClick type="submit" text=btnText }}}
             {{/if}}
         </div>
-        {{#unless profile}}
-            <a class="profile-form__back-link" href="../pages/profile.hbs">
-                <img class="profile-form__arrow-back-link" src="{{arrowBack}}">
-            </a>
-        {{/unless}}
+        {{#if profile}}
+            {{{ IconButton
+                type="button"
+                btnClass="profile-form__back-link"
+                imgClass="profile-form__arrow-back-link"
+                imageSrc=arrowBack
+                onClick=onClickBack
+            }}}
+        {{else}}
+            {{{ IconButton
+                type="button"
+                btnClass="profile-form__back-link"
+                imgClass="profile-form__arrow-back-link"
+                imageSrc=arrowBack
+                onClick=onClickToChats
+            }}}
+        {{/if}}
     </form>
 </div>

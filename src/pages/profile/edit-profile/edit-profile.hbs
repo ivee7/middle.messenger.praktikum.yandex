@@ -1,0 +1,20 @@
+<main class="main-wrapper">
+    <div class="dimmer">
+        {{{ ProfileForm
+            first_name=first_name
+            second_name=second_name
+            display_name=display_name
+            email=email
+            login=login
+            phone=phone
+            btnText="Сохранить"
+            edit=true
+            onClick=onClick
+            onAvatarClick=onAvatarClick
+            isChangeAvatar=isChangeAvatar
+        }}}
+    </div>
+    {{#if isChangeAvatar}}
+        {{{ChangeAva onClose=onAvatarClick onSend=onAvatarUpload}}}
+    {{/if}}
+</main>

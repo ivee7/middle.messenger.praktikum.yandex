@@ -1,0 +1,54 @@
+.modal-small {
+    padding: 30px;
+
+    height: 270px;
+    width: 450px;
+
+    background-color: $twilight-blue;
+    border-radius: $border-radius-big;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    &__header {
+        font-size: 2rem;
+
+        &--red {
+            color: $red;
+        }
+    }
+
+    &__footer {
+        display: flex;
+    }
+
+    &__text {
+        font-size: 1.6rem;
+
+        color: $gray;
+    }
+
+    &__exit-btn {
+        margin-right: 28px;
+    }
+
+    &__file-picker-label {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__file-picker-label {
+        font-size: 1.4rem;
+
+        padding: 5px 10px;
+        margin: 0 auto;
+
+        text-align: center;
+
+        color: $white;
+        background-color: $elephant;
+        border-radius: $border-radius-small;
+    }
+}

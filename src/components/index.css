@@ -3,11 +3,12 @@
 @import './button/button.css';
 @import './input/input.css';
 @import './search/search.css';
-@import './chat-item/chat-item.css';
+@import './chats-list-item/chats-list-item.css';
 @import './profile-form/profile-form.css';
-@import './click-menu/click-menu.css';
+@import './modals/click-menu/click-menu.css';
 @import './error/error.css';
 @import './message/message.css';
-@import './modal-small/modal-small.css';
+@import './modals/modal-small/modal-small.css';
 @import './modal-tall.css';
 @import './plain-input/plain-input.css';
+@import './messages/messages.css';

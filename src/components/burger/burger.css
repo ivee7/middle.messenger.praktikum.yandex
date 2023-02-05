@@ -21,4 +21,8 @@
 
         @include zero-vertical-offset-of-last;
     }
+
+    &:active {
+        filter: drop-shadow(0 0 0.6rem $white);
+    }
 }

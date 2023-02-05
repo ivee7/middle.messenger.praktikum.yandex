@@ -8,6 +8,7 @@ interface InputProps {
   name?: string;
   placeholder?: string;
   label?: string;
+  value: string | number;
   defaultValue?: string;
   errorMessage?: string;
   validationType?: string;
@@ -47,6 +48,7 @@ export class Input extends Block {
       label: this.props.label,
       validationType: this.props.validationType,
       errorMessage: this.props.errorMessage,
+      value: this.props.value,
       defaultValue: this.props.defaultValue,
       onBlur: this.props.onBlur,
       onFocus: this.props.onFocus,

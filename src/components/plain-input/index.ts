@@ -11,6 +11,7 @@ interface PlainInputProps {
   errorMessage?: string;
   validationType?: string;
   value?: string;
+  defaultValue?: string;
   isDisabled?: boolean;
   onFocus?: () => void;
   onBlur?: () => void;
@@ -49,6 +50,7 @@ export class PlainInput extends Block {
       validationType: this.props.validationType,
       errorMessage: this.props.errorMessage,
       value: this.props.value,
+      defaultValue: this.props.defaultValue,
       isDisabled: this.props.isDisabled,
       onBlur: this.props.onBlur,
       onFocus: this.props.onFocus,

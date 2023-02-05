@@ -30,9 +30,7 @@
 
         width: 100px;
         height: 100px;
-
-        border-radius: 50%;
-        background-color: $comet;
+        margin: 0 auto;
     }
 
     &__change-photo {
@@ -59,8 +57,13 @@
     }
 
     &__image {
+        overflow: hidden;
+
         width: 100px;
         height: 100px;
+
+        border-radius: 50%;
+        background-color: $comet;
     }
 
     &__title {
@@ -118,7 +121,7 @@
 
         border-radius: 50%;
         background-color: $blue-charcoal;
-        box-shadow: 1px 4px 10px 0px rgba(188, 217, 238, 0.2)
+        box-shadow: 1px 4px 10px 0px rgba(188, 217, 238, 0.2);
     }
 
     &__arrow-back-link {

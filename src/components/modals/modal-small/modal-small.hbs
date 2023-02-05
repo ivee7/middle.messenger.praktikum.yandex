@@ -1,0 +1,28 @@
+<form class="modal-small">
+    <p class="modal-small__header modal-small__header--{{colorTitle}}">{{title}}</p>
+    <div class="modal-small__body">
+        {{#if input}}
+            {{{ Input
+                placeholder="Логин пользователя"
+                label="Логин"
+                type="text"
+                validationType="required"
+            }}}
+        {{else}}
+            <p class="modal-small__text">{{text}}</p>
+        {{/if}}
+        {{#if file}}
+            <div class="modal-small__file-picker">
+                <label class="modal-small__file-picker-label" for="avatar">Выбрать файл на компьютере</label>
+                <input id="avatar" name="avatar" class="modal-small__file-picker-input" type="file" />
+            </div>
+        {{/if}}
+    </div>
+    <div class="modal-small__footer">
+        {{#if exit}}
+            <div class="modal-small__exit-btn">{{{Button text="Отмена" type="button" onClick=onClose}}}</div>
+        {{/if}}
+
+        {{{Button text=btnText type="button" onClick=onSendData}}}
+    </div>
+</form>
