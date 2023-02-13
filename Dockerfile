@@ -1,8 +1,8 @@
-FROM node:16
+FROM node:19
 
-WORKDIR /var/www
+WORKDIR /app
 
-COPY package*.json ./
+COPY package.json /app
 
 RUN npm install
 

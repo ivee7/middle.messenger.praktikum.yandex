@@ -10,7 +10,7 @@
     "lint": "tsc --noEmit && eslint . --ext .ts --max-warnings=-1",
     "test": "mocha --require ts-node/register --require ./mochaSetup.js './src/**/*.test.ts'",
     "validate": "npm-run-all --parallel test lint",
-    "prepare": "husky install && chmod ug+x .husky/*"
+    "prepare": "husky install"
   },
   "keywords": [
     "JS",
