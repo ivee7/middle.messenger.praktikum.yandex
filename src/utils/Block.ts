@@ -1,7 +1,7 @@
 import EventBus from './EventBus';
 import { nanoid } from 'nanoid';
 
-class Block {
+class Block<P extends Record<string, any> = any> {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -11,7 +11,7 @@ class Block {
 
   public id = nanoid(6);
 
-  protected props: Record<string, unknown>;
+  protected props: P;
 
   private eventBus: () => EventBus;
 
@@ -19,7 +19,7 @@ class Block {
 
   protected children: Record<string, Block>;
 
-  constructor(propsWithChildren = {}) {
+  constructor(propsWithChildren: P) {
     const eventBus = new EventBus();
 
     const { props, children } = this._getChildrenAndProps(propsWithChildren);
@@ -33,19 +33,19 @@ class Block {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-  private _getChildrenAndProps(childrenAndProps: any) {
+  private _getChildrenAndProps(childrenAndProps: P): { props: P, children: Record<string, Block> } {
     const props: Record<string, any> = {};
     const children: Record<string, Block> = {};
 
     Object.entries(childrenAndProps).forEach(([key, value]) => {
       if (value instanceof Block) {
-        children[key] = value;
+        children[key as string] = value;
       } else {
-        props[key] = value;
+        props[key as string] = value;
       }
     });
 
-    return { props, children };
+    return { props: props as P, children };
   }
 
   _addEvents() {
@@ -97,13 +97,13 @@ class Block {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
   }
 
-  _componentDidUpdate(oldProps: any, newProps: any) {
-    if (this.componentDidUpdate(oldProps, newProps)) {
+  _componentDidUpdate() {
+    if (this.componentDidUpdate()) {
       this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
   }
 
-  componentDidUpdate(oldProps: any, newProps: any) {
+  componentDidUpdate() {
     return true;
   }
 
@@ -134,15 +134,11 @@ class Block {
   protected compile(template: (context: any) => string, context: any) {
     const contextAndStubs = { ...context };
 
-    // Object.entries(this.children).forEach(([name, component]) => {
-    //     contextAndStubs[name] = `<div data-id='${component.id}' />`
-    // })
-
     const html = template(contextAndStubs);
     const temp = document.createElement('template');
     temp.innerHTML = html;
 
-    Object.entries(this.children).forEach(([name, component]) => {
+    Object.entries(this.children).forEach(([, component]) => {
       const stub = temp.content.querySelector(`[data-id='${component.id}']`);
 
       if (!stub) {
@@ -163,18 +159,18 @@ class Block {
     return this.element;
   }
 
-  _makePropsProxy(props: Record<string, any>) {
+  _makePropsProxy(props: P) {
     const self = this;
 
     return new Proxy(props, {
-      get(target, prop) {
-        const value = target[prop as string];
+      get(target, prop: string) {
+        const value = target[prop];
         return typeof value === 'function' ? value.bind(target) : value;
       },
-      set(target, prop, value) {
+      set(target, prop: string, value) {
         const oldTarget = { ...target };
 
-        target[prop as string] = value;
+        target[prop as keyof P] = value;
 
         self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
         return true;

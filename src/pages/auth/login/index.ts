@@ -6,7 +6,7 @@ import template from './login.hbs';
 
 export class Login extends Block {
   constructor() {
-    super();
+    super({});
     this.setProps({
       onClick: this._onAuth.bind(this),
     });

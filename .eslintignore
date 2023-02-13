@@ -3,3 +3,6 @@
 /dist
 package-lock.json
 /.github
+server.js
+**/*.html
+.eslintrc.js

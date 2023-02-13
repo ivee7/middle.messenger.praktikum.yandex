@@ -35,6 +35,8 @@ import { EditProfile } from './pages/profile/edit-profile';
 import { EditPassword } from './pages/profile/edit-password';
 import { Chat } from './pages/chat';
 
+import './styles/index.scss';
+
 registerComponent('Button', Button as any);
 registerComponent('IconButton', IconButton as any);
 registerComponent('Link', Link as any);

@@ -6,7 +6,7 @@ import template from './register.hbs';
 
 export class Register extends Block {
   constructor() {
-    super();
+    super({});
     this.setProps({
       onClick: this._onRegister.bind(this),
     });

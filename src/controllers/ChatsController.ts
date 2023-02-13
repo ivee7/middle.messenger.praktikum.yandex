@@ -63,7 +63,8 @@ export class ChatsController {
 
       if (!user) {
         return
-      };
+      }
+
       if (user.length === 0) {
         console.error(`Пользователь ${login} не найден!`);
         return;
@@ -82,7 +83,8 @@ export class ChatsController {
 
       if (!user) {
         return
-      };
+      }
+
       if (user.length === 0) {
         console.error(`Пользователь ${login} не найден!`);
         return;

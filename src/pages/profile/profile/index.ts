@@ -5,7 +5,7 @@ import AuthController from '../../../controllers/AuthController';
 
 class BaseProfile extends Block {
     constructor() {
-        super();
+        super({});
     }
 
     init(): void {
