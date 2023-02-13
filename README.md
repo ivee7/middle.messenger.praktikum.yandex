@@ -8,3 +8,4 @@
 - Команда для проверки стилей: npm run stylelint;
 - Команда для линтинга typescript файлов: npm run lint;
 - Ссылка на Netlify: https://rococo-elf-3e2293.netlify.app/
+- Ссылка на render.com (deploy docker'а): https://ivee7-middle-messenger-praktikum-yandex.onrender.com
