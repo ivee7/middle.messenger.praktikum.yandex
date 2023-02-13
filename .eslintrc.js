@@ -31,4 +31,3 @@ module.exports = {
         "@typescript-eslint/ban-types": "off",
     },
 };
-// "lint": "tsc --noEmit && eslint ./src/**/*.ts --max-warnings=-1",
