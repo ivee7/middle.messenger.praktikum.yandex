@@ -11,7 +11,7 @@ import Validator from '../../utils/Validator';
 
 export class BaseChat extends Block {
     constructor() {
-        super();
+        super({});
         this.setProps({
             onToggleBar: this._onToggleModal.bind(this, 'isBarOpen'),
             onToggleCreateChatModal: this._onToggleModal.bind(this, 'isCreateChatModalOpen'),

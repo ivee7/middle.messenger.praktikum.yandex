@@ -9,7 +9,8 @@
   "ignoreFiles": [
     "dist/*",
     "node_modules/*",
-    ".parcel-cache/*"
+    ".parcel-cache/*",
+    "package-lock.json"
   ],
   "rules": {
     "at-rule-no-unknown": null,

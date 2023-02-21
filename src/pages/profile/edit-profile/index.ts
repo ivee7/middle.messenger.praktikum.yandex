@@ -7,7 +7,7 @@ import store, { withStore } from '../../../utils/Store';
 
 class BaseEditProfile extends Block {
   constructor() {
-    super();
+    super({});
     this.setProps({
       onClick: this._onChangeData.bind(this),
       onAvatarClick: this._onAvatarChangeClick.bind(this),

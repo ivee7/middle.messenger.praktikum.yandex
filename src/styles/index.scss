@@ -1,0 +1,14 @@
+@import './_fonts.scss';
+@import './_generic.scss';
+@import './_mixins.scss';
+
+@import '../components/index';
+@import '../layouts/index';
+@import '../pages/index';
+
+.index {
+    &__link {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+}

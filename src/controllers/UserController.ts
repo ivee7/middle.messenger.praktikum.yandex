@@ -43,7 +43,7 @@ export class UserController {
 
   public async uploadAvatar(avatar: FormData) {
     try {
-      const response = await this.api.changeAvatar(avatar);
+      const response: any = await this.api.changeAvatar(avatar);
       store.set('user.avatar', response.avatar);
     } catch (error) {
       console.error(error)
@@ -55,7 +55,8 @@ export class UserController {
       await this.api.logout();
 
       router.go('/');
-    } catch (e: any) {
+    } catch (error) {
+      console.log(error);
     }
   }
 }

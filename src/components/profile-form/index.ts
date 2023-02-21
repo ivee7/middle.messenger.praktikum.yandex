@@ -1,4 +1,5 @@
 import { withRouter } from '../../hocs/withRouter';
+import Router from '../../utils/Router';
 import Block from '../../utils/Block';
 import template from './profile-form.hbs';
 import wrench from '../../static/icons/wrench.svg';
@@ -9,6 +10,7 @@ import store from '../../utils/Store';
 
 interface ProfileFormProps {
   edit?: boolean,
+  router: typeof Router,
   profile?: boolean,
   password?: boolean,
   btnText?: string,
@@ -55,4 +57,4 @@ export class BaseProfileForm extends Block {
   }
 }
 
-export const ProfileForm = withRouter(BaseProfileForm);
+export const ProfileForm = withRouter(BaseProfileForm as typeof Block);

@@ -1,10 +1,12 @@
 import { withRouter } from '../../hocs/withRouter';
 import Block from '../../utils/Block';
 import template from './link.hbs';
+import Router from '../../utils/Router';
 
 interface NavLinkProps {
   text: string;
   to: string;
+  router: typeof Router;
   linkClass?: string;
   linkType?: string;
   dataDimmer?: string;
@@ -35,4 +37,4 @@ class NavLink extends Block {
   }
 }
 
-export const Link = withRouter(NavLink);
+export const Link = withRouter(NavLink as typeof Block);

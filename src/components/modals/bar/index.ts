@@ -51,4 +51,4 @@ const withActiveBar = withStore((state) => ({
       isBarOpen: state.isBarOpen,
 }))
 
-export const Bar = withActiveBar(BaseBar);
+export const Bar = withActiveBar(BaseBar as typeof Block);

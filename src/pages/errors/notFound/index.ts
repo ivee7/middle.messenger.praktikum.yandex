@@ -4,7 +4,7 @@ import notFoundErrorImage from '../../static/images/404.png';
 
 export class NotFound extends Block {
     constructor() {
-        super();
+        super({});
     }
 
     render() {

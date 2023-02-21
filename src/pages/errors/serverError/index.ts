@@ -4,7 +4,7 @@ import serverErrorImage from '../../static/images/505.png';
 
 export class ServerError extends Block {
     constructor() {
-        super();
+        super({});
     }
 
     render() {
